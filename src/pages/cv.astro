@@ -1,0 +1,207 @@
+---
+import '../styles/global.css';
+
+type CvEntry = {
+	title: string;
+	detail: string;
+	date: string;
+	href?: string;
+	linkLabel?: string;
+};
+
+type CvSection = {
+	label: string;
+	summary?: string;
+	entries?: CvEntry[];
+};
+
+const cvSections: CvSection[] = [
+	{
+		label: 'Research interests',
+		summary:
+			'Neurosymbolic AI for natural language inference and automatic contradiction detection: combining LLMs, logic, and linguistic formalisms for reliable language technology.',
+	},
+	{
+		label: 'Experience',
+		entries: [
+			{
+				title: 'Doctoral researcher in artificial intelligence',
+				detail:
+					'Last-year Ph.D. student at LIRMM, CNRS and the University of Montpellier. Research on NLI, contradiction detection, and high-stakes language AI.',
+				date: 'Current',
+			},
+		],
+	},
+	{
+		label: 'Education',
+		entries: [
+			{
+				title: 'Ph.D., Computer science and AI',
+				detail: 'CNRS and University of Montpellier, France.',
+				date: 'Current',
+			},
+			{
+				title: 'M.S., Mathematical logic and theoretical computer science',
+				detail: 'Paris Cité University, France.',
+				date: 'Degree',
+			},
+			{
+				title: 'M.A., History and philosophy of science',
+				detail: 'École normale supérieure de Paris (ENS Ulm), France.',
+				date: 'Degree',
+			},
+			{
+				title: 'Ptychio, Classics and linguistics',
+				detail: 'Aristotle University of Thessaloniki, Greece.',
+				date: 'Degree',
+			},
+		],
+	},
+	{
+		label: 'Publications',
+		entries: [
+			{
+				title: 'Neurosymbolic AI for Natural Language Inference in French',
+				detail:
+					'Maximos Skandalis, Lasha Abzianidze, Richard Moot, Christian Retoré, and Simon Robillard. IWCS 2025, pages 242-253.',
+				date: '2025',
+				href: 'https://aclanthology.org/2025.iwcs-main.21',
+				linkLabel: 'ACL Anthology',
+			},
+			{
+				title: 'New Datasets for Automatic Detection of Textual Entailment and Contradictions in French',
+				detail:
+					'Maximos Skandalis, Richard Moot, Christian Retoré, and Simon Robillard. LREC-COLING 2024, pages 12173-12186.',
+				date: '2024',
+				href: 'https://aclanthology.org/2024.lrec-main.1065',
+				linkLabel: 'ACL Anthology',
+			},
+			{
+				title: 'DACCORD: a dataset for automatic detection of contradictory statements in French',
+				detail: 'Maximos Skandalis, Richard Moot, and Simon Robillard. TALN 2023, Paris, France.',
+				date: '2023',
+				href: 'https://aclanthology.org/2023.jeptalnrecital-long.22',
+				linkLabel: 'ACL Anthology',
+			},
+			{
+				title: 'Global PIQA: Evaluating Commonsense Reasoning Across 100+ Languages and Cultures',
+				detail: 'Tyler A. Chang, Catherine Arnett, and authors at the 5th Multilingual Representation Learning Workshop. Submitted to NeurIPS 2026.',
+				date: '2026',
+				href: 'https://arxiv.org/abs/2510.24081',
+				linkLabel: 'arXiv',
+			},
+		],
+	},
+	{
+		label: 'Talks',
+		entries: [
+			{
+				title: 'Deep learning and formal methods for automatic contradiction detection',
+				detail: 'Oral presentation, 2025 Annual Scientific Day of the ICO Key Challenge, Toulouse, France.',
+				date: '2025.12',
+				href: 'https://www.ico-occitanie.fr/wp-content/uploads/2025/07/Programme-Journee-ICO-2025-C.pdf#page=6',
+				linkLabel: 'Event programme',
+			},
+			{
+				title: 'Data quality and neurosymbolic approaches to textual inference',
+				detail: 'Oral presentation, first thematic workshop of the RECAST working group, ENS Paris, France.',
+				date: '2025.11',
+				href: 'https://gt-recast.github.io/events/2025-11-17.html',
+				linkLabel: 'Event programme',
+			},
+		],
+	},
+	{
+		label: 'Funding and academic record',
+		entries: [
+			{
+				title: 'Doctoral funding',
+				detail:
+					'Funded by the French Ministry of the Armed Forces through the Defence Innovation Agency and by the Cybersecurity Institute of Occitanie.',
+				date: 'Current',
+			},
+			{
+				title: 'Teaching and service',
+				detail: 'University teaching, seminars, mentorship, and service will be added to this record as they become available.',
+				date: 'Record',
+			},
+		],
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Curriculum vitae of Maximos Skandalis." />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap"
+			rel="stylesheet"
+		/>
+		<title>CV - Maximos Skandalis</title>
+	</head>
+	<body>
+		<main class="cv-page">
+			<header class="cv-page-header">
+				<a class="cv-back" href="/">Portfolio</a>
+				<button class="cv-print" type="button">Print / save PDF</button>
+			</header>
+
+			<section class="cv-intro">
+				<h1 class="cv-name">Maximos<br /><em>Skandalis</em></h1>
+				<div class="cv-intro-copy">
+					<div class="micro-label">Curriculum vitae / 2026</div>
+					<p>Last-year Ph.D. researcher in AI at LIRMM, CNRS and the University of Montpellier.</p>
+					<a class="cv-contact" href="mailto:maximos.skandalis@cnrs.fr">
+						maximos.skandalis@cnrs.fr
+					</a>
+				</div>
+			</section>
+
+			<div class="cv-body">
+				{
+					cvSections.map((section) => (
+						<section class="cv-section">
+							<div class="cv-section-label">{section.label}</div>
+							<div>
+								{section.summary && <p class="cv-summary">{section.summary}</p>}
+								{
+									section.entries && (
+										<div class="cv-entry-list">
+											{section.entries.map((entry) => (
+												<article class="cv-entry">
+													<div>
+														<h3>{entry.title}</h3>
+														<p>{entry.detail}</p>
+														{
+															entry.href && (
+																<a class="cv-entry-link" href={entry.href} target="_blank" rel="noreferrer">
+																	{entry.linkLabel ?? 'Read more'}
+																</a>
+															)
+														}
+													</div>
+													<div class="cv-entry-date">{entry.date}</div>
+												</article>
+											))}
+										</div>
+									)
+								}
+							</div>
+						</section>
+					))
+				}
+				<p class="cv-footnote">Last updated July 2026. This CV grows with the work.</p>
+			</div>
+		</main>
+
+		<script>
+			document.querySelector<HTMLButtonElement>('.cv-print')?.addEventListener('click', () => window.print());
+		</script>
+	</body>
+</html>
