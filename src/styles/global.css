@@ -749,6 +749,7 @@ a {
 
 .footer-links {
 	display: flex;
+	flex-wrap: wrap;
 	gap: 1.1rem;
 }
 
@@ -862,6 +863,10 @@ a {
 		align-items: flex-start;
 		flex-direction: column;
 		padding: 1rem 1.25rem;
+	}
+
+	.footer-links {
+		width: 100%;
 	}
 }
 
@@ -978,6 +983,12 @@ a {
 .cv-contact:hover {
 	border-color: var(--signal);
 	color: var(--signal);
+}
+
+.cv-profile-links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.65rem 1rem;
 }
 
 .cv-body {
@@ -1218,6 +1229,14 @@ a {
 	color: var(--signal);
 }
 
+.academic-link-group {
+	display: flex;
+	max-width: 13rem;
+	flex-wrap: wrap;
+	gap: 0.65rem 0.9rem;
+	justify-content: flex-end;
+}
+
 .link-rail {
 	display: grid;
 	border-top: 1px solid var(--ink);
@@ -1346,6 +1365,11 @@ a {
 
 	.academic-link {
 		text-align: left;
+	}
+
+	.academic-link-group {
+		max-width: none;
+		justify-content: flex-start;
 	}
 
 	.metric-strip {

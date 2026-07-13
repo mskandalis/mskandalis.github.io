@@ -308,6 +308,121 @@ export const responsibilityItems = [
 	},
 ];
 
+export const organizationalResponsibilities = [
+	{
+		period: '2026.05',
+		category: 'Programme committee',
+		title: 'NLP4Ecology @ LREC 2026',
+		detail: 'Member of the programme committee. Palma, 12 May 2026.',
+		links: [
+			{
+				label: 'Programme committee',
+				href: 'https://lrec-conf.org/proceedings/lrec2026/workshops/nlp4ecology/2026.nlp4ecology-1.0.pdf#page=5',
+			},
+			{ label: 'Workshop', href: 'https://nlp4ecology2026.di.unito.it/' },
+		],
+	},
+	{
+		period: '2025.03',
+		category: 'Programme committee',
+		title: 'NLP4Ecology @ NoDaLiDa/BalticHLT 2025',
+		detail: 'Member of the programme committee. Tallinn, 2 March 2025.',
+		links: [
+			{ label: 'Programme committee', href: 'https://aclanthology.org/2025.nlp4ecology-1.0.pdf#page=6' },
+			{ label: 'Workshop', href: 'https://econlpws2025.di.unito.it/' },
+		],
+	},
+	{
+		period: '2024.10',
+		category: 'Local organisation',
+		title: 'Temporal Representation and Reasoning (TIME) 2024',
+		detail: 'Co-chair of the local organising committee. Montpellier, 28-30 October 2024.',
+		links: [{ label: 'Organisation', href: 'https://www.lirmm.fr/time2024/#Organization' }],
+	},
+	{
+		period: '2024-',
+		category: 'Community',
+		title: 'I2S Doctoral School Alumni Network',
+		detail: 'Founder and coordinator.',
+	},
+];
+
+export const reviewingAssignments = [
+	{
+		period: '2026',
+		category: 'Peer review',
+		title: '2nd Workshop NLP4Ecology @ LREC 2026',
+		detail: 'Completed 2 reviews.',
+	},
+	{
+		period: '2025',
+		category: 'Peer review',
+		title: '1st Workshop NLP4Ecology @ NoDaLiDa/BalticHLT 2025',
+		detail: 'Completed 2 reviews.',
+	},
+	{
+		period: '2026',
+		category: 'Peer review',
+		title: 'CSL 2026',
+		detail: 'Completed 1 review.',
+	},
+];
+
+export const collectiveResponsibilities = [
+	{
+		period: '2023-2026',
+		category: 'Elected role',
+		title: 'LIRMM Laboratory Council',
+		detail: 'Elected Ph.D. student representative.',
+		links: [{ label: 'LIRMM', href: 'https://www.lirmm.fr/' }],
+	},
+	{
+		period: '2024-2026',
+		category: 'Elected role',
+		title: 'Information, Structures and Systems (I2S) Doctoral School Council',
+		detail: 'Elected Ph.D. student representative.',
+		links: [{ label: 'I2S Doctoral School', href: 'https://edi2s.umontpellier.fr/' }],
+	},
+	{
+		period: '2024-2026',
+		category: 'Student representation',
+		title: 'Mathematics, Computer Science, Physics and Systems (MIPS) Cluster Council',
+		detail: 'Ph.D. student representative at the University of Montpellier.',
+		links: [{ label: 'MIPS cluster', href: 'https://www.umontpellier.fr/en/recherche/poles-de-recherche/pole-mips' }],
+	},
+	{
+		period: '2024-2026',
+		category: 'Student representation',
+		title: 'Doctoral College (CDUM) Council',
+		detail: 'Ph.D. student representative at the University of Montpellier.',
+		links: [{ label: 'Doctoral College', href: 'https://collegedoctoral.umontpellier.fr/en/accueil-college-doctoral-de-luniversite-de-montpellier-en' }],
+	},
+	{
+		period: '2023-2026',
+		category: 'Academic service',
+		title: 'HRS4R Strategic Group, University of Montpellier',
+		detail: 'Member of the HRS4R strategic group.',
+	},
+];
+
+export const memberships = [
+	{ period: '2025-', title: 'French Institute for Higher National Defence Studies (IHEDN)', detail: 'Auditor.' },
+	{ period: '2020-', title: 'International Association for Computing and Philosophy (IACAP)', detail: 'Permanent member.' },
+	{ period: '2021-', title: 'Association for Logic, Language and Information (FoLLI)', detail: 'Member.' },
+	{ period: '2021-', title: 'International Association for Ontology and its Applications (IAOA)', detail: 'Individual member.' },
+	{ period: '2022-', title: 'Proof Society', detail: 'Member.' },
+	{ period: '2024-', title: 'Proof-theoretic Semantics (PTS) Network', detail: 'Member.' },
+	{ period: '2025-', title: 'Aristotelian Society', detail: 'Lifetime member.' },
+	{ period: '2022-2027', title: 'ATALA (Association pour le Traitement Automatique des Langues)', detail: 'Individual member.' },
+	{ period: '2022-2026', title: 'French Computer Science Society (SIF)', detail: 'Member.' },
+	{ period: '2023-2025', title: 'French Mathematical Society (SMF)', detail: 'Member.' },
+	{ period: '2024-2026', title: 'ELRA Language Resources Association', detail: 'Member.' },
+	{ period: '2022-2027', title: 'Philosophy of Physics Society', detail: 'Member.' },
+	{ period: '2018-', title: 'The Pond: Philosophy of Science Around the Mediterranean', detail: 'Member.' },
+	{ period: '2016-2028', title: 'European Philosophy of Science Association', detail: 'Student member.' },
+	{ period: '2015-', title: 'Diazoma', detail: 'Associate member of the nonprofit association for the restoration of ancient theatres in Greece.' },
+];
+
 export const newsItems = [
 	{
 		date: '2025.12',

@@ -1,5 +1,16 @@
 ---
-import { education, publications, researchTalks, responsibilityItems, supervisionProjects, teachingGroups } from '../data/academic';
+import {
+	collectiveResponsibilities,
+	education,
+	memberships,
+	organizationalResponsibilities,
+	publications,
+	researchTalks,
+	responsibilityItems,
+	reviewingAssignments,
+	supervisionProjects,
+	teachingGroups,
+} from '../data/academic';
 import '../styles/global.css';
 
 type CvEntry = {
@@ -72,13 +83,45 @@ const cvSections: CvSection[] = [
 		})),
 	},
 	{
-		label: 'Responsibilities and funding',
-		entries: responsibilityItems.map((item) => ({
+		label: 'Appointment and funding',
+		entries: responsibilityItems.filter((item) => item.category === 'Research' || item.category === 'Funding').map((item) => ({
 			title: item.title,
 			detail: item.detail,
 			date: item.period,
 			href: item.href,
 			linkLabel: item.linkLabel,
+		})),
+	},
+	{
+		label: 'Organizational responsibilities',
+		entries: organizationalResponsibilities.map((item) => ({
+			title: item.title,
+			detail: item.detail,
+			date: item.period,
+			href: item.links?.[0]?.href,
+			linkLabel: item.links?.[0]?.label,
+		})),
+	},
+	{
+		label: 'Reviewing',
+		entries: reviewingAssignments.map((item) => ({ title: item.title, detail: item.detail, date: item.period })),
+	},
+	{
+		label: 'Collective academic service',
+		entries: collectiveResponsibilities.map((item) => ({
+			title: item.title,
+			detail: item.detail,
+			date: item.period,
+			href: item.links?.[0]?.href,
+			linkLabel: item.links?.[0]?.label,
+		})),
+	},
+	{
+		label: 'Memberships',
+		entries: memberships.map((membership) => ({
+			title: membership.title,
+			detail: membership.detail,
+			date: membership.period,
 		})),
 	},
 ];
@@ -114,6 +157,10 @@ const cvSections: CvSection[] = [
 					<a class="cv-contact" href="mailto:maximos.skandalis@cnrs.fr">
 						maximos.skandalis@cnrs.fr
 					</a>
+					<div class="cv-profile-links">
+						<a class="cv-contact" href="https://orcid.org/0000-0003-2361-5115" target="_blank" rel="noreferrer">ORCID</a>
+						<a class="cv-contact" href="https://www.researchgate.net/profile/Maximos-Skandalis" target="_blank" rel="noreferrer">ResearchGate</a>
+					</div>
 				</div>
 			</section>
 
