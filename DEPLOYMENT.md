@@ -1,14 +1,14 @@
 # Publishing to `mskandalis.github.io`
 
-This is a static Astro site. It publishes through GitHub Pages branch hosting and does not require a paid host or GitHub Actions.
+This is a static Astro site. It publishes through the existing GitHub Pages branch source and does not require a paid host or GitHub Actions.
 
 ## One-time GitHub setup
 
-In the `mskandalis/mskandalis.github.io` repository, open **Settings > Pages** and set:
+The repository already serves GitHub Pages from the root of `main`. If that setting ever changes, open **Settings > Pages** and set:
 
 - **Source:** Deploy from a branch
 - **Branch:** `main`
-- **Folder:** `/docs`
+- **Folder:** `/ (root)`
 
 Save the setting. GitHub Pages will then publish the generated site at `https://mskandalis.github.io`.
 
@@ -29,7 +29,7 @@ git commit -m "Update research portfolio"
 git push
 ```
 
-The `docs/` directory is generated from Astro's `dist/` output and includes `.nojekyll` so its hashed `_astro` assets are served correctly.
+The root static files are generated from Astro's `dist/` output. The build includes `.nojekyll` so its hashed `_astro` assets are served correctly.
 
 ## Content sources
 

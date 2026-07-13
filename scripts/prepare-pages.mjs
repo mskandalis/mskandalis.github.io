@@ -1,13 +1,15 @@
-import { cp, mkdir, rm, writeFile } from 'node:fs/promises';
+import { cp, rm, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 const projectRoot = process.cwd();
 const buildDirectory = resolve(projectRoot, 'dist');
-const pagesDirectory = resolve(projectRoot, 'docs');
+const publishedPaths = ['_astro', 'cv', 'images', 'favicon.ico', 'favicon.svg', 'index.html', '.nojekyll'];
 
-await rm(pagesDirectory, { force: true, recursive: true });
-await mkdir(pagesDirectory, { recursive: true });
-await cp(buildDirectory, pagesDirectory, { recursive: true });
-await writeFile(resolve(pagesDirectory, '.nojekyll'), '');
+for (const publishedPath of publishedPaths) {
+	await rm(resolve(projectRoot, publishedPath), { force: true, recursive: true });
+}
 
-console.log(`Prepared static GitHub Pages files in ${pagesDirectory}`);
+await cp(buildDirectory, projectRoot, { recursive: true });
+await writeFile(resolve(projectRoot, '.nojekyll'), '');
+
+console.log(`Prepared static GitHub Pages files in ${projectRoot}`);

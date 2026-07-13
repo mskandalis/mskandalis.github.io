@@ -1,9 +1,5 @@
 ---
-import { existsSync } from 'node:fs';
 import '../styles/global.css';
-
-const portraitPath = new URL('../../public/images/portrait.png', import.meta.url);
-const hasPortrait = existsSync(portraitPath);
 
 const researchDirections = [
 	{
@@ -153,19 +149,7 @@ const newsItems = [
 					</div>
 					<figure class="portrait-panel">
 						<div class="portrait-frame">
-							{
-								hasPortrait ? (
-									<img
-										class="portrait-image"
-										src="/images/portrait.png"
-										alt="Portrait of Maximos Skandalis"
-									/>
-								) : (
-									<div class="portrait-fallback" aria-label="Portrait placeholder for Maximos Skandalis" role="img">
-										M<span>image / 01</span>
-									</div>
-								)
-							}
+							<img class="portrait-image" src="/images/portrait.png" alt="Portrait of Maximos Skandalis" />
 						</div>
 						<figcaption class="portrait-caption">
 							<span>Portrait / 01</span>
