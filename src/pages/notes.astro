@@ -1,0 +1,48 @@
+---
+import { newsItems } from '../data/academic';
+import AcademicPage from '../layouts/AcademicPage.astro';
+---
+
+<AcademicPage
+	currentPath="/notes/"
+	title="News and Notes"
+	description="Research news, talks, and notes by Maximos Skandalis."
+	eyebrow="06 / News & notes"
+	heading="Thinking, out"
+	emphasis="loud."
+	intro="A concise public log of research activity, talks, and the evolving practice behind the work."
+>
+	<section class="page-section" aria-labelledby="news-heading">
+		<div class="page-section-label"><span>Signal log</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="news-heading">Research news</h2>
+			<div class="academic-list">
+				{
+					newsItems.map((note) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{note.date}</span><span>{note.status}</span></div>
+							<div>
+								<h3>{note.title}</h3>
+								<p>{note.detail}</p>
+							</div>
+							<a class="academic-link" href={note.href} target={note.href.startsWith('http') ? '_blank' : undefined} rel={note.href.startsWith('http') ? 'noreferrer' : undefined}>Open</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section" aria-labelledby="blog-heading">
+		<div class="page-section-label"><span>Blog</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="blog-heading">Notes in <em>formation.</em></h2>
+			<div class="detail-prose-stack">
+				<p>
+					This space will collect short essays on logic, language technology, the research process, and the
+					practical work of making AI systems more reliable.
+				</p>
+			</div>
+		</div>
+	</section>
+</AcademicPage>

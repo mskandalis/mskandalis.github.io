@@ -1,0 +1,57 @@
+---
+import { education } from '../data/academic';
+import AcademicPage from '../layouts/AcademicPage.astro';
+---
+
+<AcademicPage
+	currentPath="/record/"
+	title="Academic Record"
+	description="Academic training, education, and doctoral funding for Maximos Skandalis."
+	eyebrow="04 / Academic record"
+	heading="Training across"
+	emphasis="disciplines."
+	intro="A path across artificial intelligence, mathematical logic, history and philosophy of science, classics, and linguistics."
+>
+	<section class="page-section" aria-labelledby="education-heading">
+		<div class="page-section-label"><span>Education</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="education-heading">Academic training</h2>
+			<div class="academic-list">
+				{
+					education.map((item) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{item.year}</span><span>Degree</span></div>
+							<div>
+								<h3>{item.title}</h3>
+								<p>{item.detail}</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section" aria-labelledby="funding-heading">
+		<div class="page-section-label"><span>Funding</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="funding-heading">Research support</h2>
+			<div class="academic-list">
+				<article class="academic-item">
+					<div class="academic-meta"><span>Current</span><span>Ph.D.</span></div>
+					<div>
+						<h3>Defence Innovation Agency</h3>
+						<p>Doctoral funding from the French Ministry of the Armed Forces through the Defence Innovation Agency.</p>
+					</div>
+				</article>
+				<article class="academic-item">
+					<div class="academic-meta"><span>Current</span><span>Ph.D.</span></div>
+					<div>
+						<h3>Cybersecurity Institute of Occitanie</h3>
+						<p>Doctoral funding and research support from the Cybersecurity Institute of Occitanie.</p>
+					</div>
+				</article>
+			</div>
+		</div>
+	</section>
+</AcademicPage>

@@ -3,7 +3,21 @@ import { resolve } from 'node:path';
 
 const projectRoot = process.cwd();
 const buildDirectory = resolve(projectRoot, 'dist');
-const publishedPaths = ['_astro', 'cv', 'images', 'favicon.ico', 'favicon.svg', 'index.html', '.nojekyll'];
+const publishedPaths = [
+	'_astro',
+	'about',
+	'cv',
+	'images',
+	'notes',
+	'record',
+	'research',
+	'responsibilities',
+	'teaching',
+	'favicon.ico',
+	'favicon.svg',
+	'index.html',
+	'.nojekyll',
+];
 
 for (const publishedPath of publishedPaths) {
 	await rm(resolve(projectRoot, publishedPath), { force: true, recursive: true });

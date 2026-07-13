@@ -1,0 +1,81 @@
+---
+import { supervisionProjects, teachingGroups } from '../data/academic';
+import AcademicPage from '../layouts/AcademicPage.astro';
+---
+
+<AcademicPage
+	currentPath="/teaching/"
+	title="Teaching"
+	description="University teaching and student supervision by Maximos Skandalis at the University of Montpellier and Polytech Montpellier."
+	eyebrow="03 / Teaching"
+	heading="Teaching with"
+	emphasis="structure."
+	intro="A university teaching record spanning computer science, mathematics, software engineering, formal languages, and student research supervision."
+>
+	<section class="metric-strip" aria-label="Teaching record summary">
+		<div class="metric">
+			<span class="metric-value">272 h</span>
+			<span class="metric-label">Reported teaching total</span>
+		</div>
+		<div class="metric">
+			<span class="metric-value">16</span>
+			<span class="metric-label">Course assignments</span>
+		</div>
+		<div class="metric">
+			<span class="metric-value">5</span>
+			<span class="metric-label">Supervised projects</span>
+		</div>
+	</section>
+
+	<section class="page-section" aria-labelledby="teaching-load-heading">
+		<div class="page-section-label"><span>Teaching load</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="teaching-load-heading">Courses, tutorials, and <em>practical sessions.</em></h2>
+			{
+				teachingGroups.map((group) => (
+					<section class="teaching-group" aria-labelledby={`teaching-${group.label.toLowerCase().replaceAll(' ', '-')}`}>
+						<div class="teaching-group-heading">
+							<h3 id={`teaching-${group.label.toLowerCase().replaceAll(' ', '-')}`}>{group.label}</h3>
+							<span>{group.frenchLabel}</span>
+						</div>
+						<div class="academic-list">
+							{
+								group.assignments.map((assignment) => (
+									<article class="academic-item academic-item--teaching">
+										<div class="academic-meta"><span>{assignment.year}</span><span>{assignment.hours}</span></div>
+										<div>
+											<h4>{assignment.title}</h4>
+											<p class="academic-programme">{assignment.programme}</p>
+											<p>{assignment.institution}</p>
+										</div>
+									</article>
+								))
+							}
+						</div>
+					</section>
+				))
+			}
+			<p class="detail-note">The 272-hour figure is the reported cumulative teaching volume. Supervision is listed separately.</p>
+		</div>
+	</section>
+
+	<section class="page-section" id="supervision" aria-labelledby="supervision-heading">
+		<div class="page-section-label"><span>Supervision</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="supervision-heading">Student research <em>supervision.</em></h2>
+			<div class="academic-list">
+				{
+					supervisionProjects.map((project) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{project.year}</span><span>Research project</span></div>
+							<div>
+								<h3>{project.title}</h3>
+								<p>{project.detail}</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</AcademicPage>

@@ -1,0 +1,77 @@
+---
+import { publications, researchDirections, researchTalks } from '../data/academic';
+import AcademicPage from '../layouts/AcademicPage.astro';
+---
+
+<AcademicPage
+	currentPath="/research/"
+	title="Research"
+	description="Research, publications, and talks by Maximos Skandalis on neurosymbolic natural language inference and contradiction detection."
+	eyebrow="02 / Research"
+	heading="Reasoning with"
+	emphasis="structure."
+	intro="Research on neurosymbolic natural language inference, contradiction detection, and reliable language technology for high-stakes contexts."
+>
+	<section class="page-section" aria-labelledby="directions-heading">
+		<div class="page-section-label"><span>Directions</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="directions-heading">Current research directions</h2>
+			<div class="academic-list">
+				{
+					researchDirections.map((direction) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{direction.index}</span><span>{direction.status}</span></div>
+							<div>
+								<h3>{direction.title}</h3>
+								<p>{direction.description}</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section" aria-labelledby="publications-heading">
+		<div class="page-section-label"><span>Publications</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="publications-heading">Papers and <em>preprints.</em></h2>
+			<div class="academic-list">
+				{
+					publications.map((publication) => (
+						<article class="academic-item academic-item--publication">
+							<div class="academic-meta"><span>{publication.year}</span><span>{publication.role}</span></div>
+							<div>
+								<h3>{publication.title}</h3>
+								<p class="academic-authors">{publication.authors}</p>
+								<p>{publication.venue}</p>
+							</div>
+							<a class="academic-link" href={publication.href} target="_blank" rel="noreferrer">{publication.linkLabel}</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section" aria-labelledby="talks-heading">
+		<div class="page-section-label"><span>Talks</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="talks-heading">Scientific exchange</h2>
+			<div class="academic-list">
+				{
+					researchTalks.map((talk) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{talk.date}</span><span>Oral presentation</span></div>
+							<div>
+								<h3>{talk.title}</h3>
+								<p>{talk.detail}</p>
+							</div>
+							<a class="academic-link" href={talk.href} target="_blank" rel="noreferrer">{talk.linkLabel}</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</AcademicPage>

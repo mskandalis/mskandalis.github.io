@@ -1,0 +1,55 @@
+---
+import { responsibilityItems, supervisionProjects } from '../data/academic';
+import AcademicPage from '../layouts/AcademicPage.astro';
+---
+
+<AcademicPage
+	currentPath="/responsibilities/"
+	title="Responsibilities"
+	description="Academic responsibilities of Maximos Skandalis across research, teaching, supervision, and public-interest AI."
+	eyebrow="05 / Responsibilities"
+	heading="Academic work, held"
+	emphasis="responsibly."
+	intro="Current responsibilities across doctoral research, university teaching, student supervision, and publicly supported AI research."
+>
+	<section class="page-section" aria-labelledby="responsibility-heading">
+		<div class="page-section-label"><span>Scope</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="responsibility-heading">Research, teaching, and <em>supervision.</em></h2>
+			<div class="academic-list">
+				{
+					responsibilityItems.map((item) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{item.period}</span><span>{item.category}</span></div>
+							<div>
+								<h3>{item.title}</h3>
+								<p>{item.detail}</p>
+							</div>
+							{item.href && <a class="academic-link" href={item.href}>{item.linkLabel}</a>}
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section" aria-labelledby="projects-heading">
+		<div class="page-section-label"><span>Projects</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="projects-heading">Supervision in <em>practice.</em></h2>
+			<div class="academic-list">
+				{
+					supervisionProjects.map((project) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{project.year}</span><span>Supervision</span></div>
+							<div>
+								<h3>{project.title}</h3>
+								<p>{project.detail}</p>
+							</div>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</AcademicPage>

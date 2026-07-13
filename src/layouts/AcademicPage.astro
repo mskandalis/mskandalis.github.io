@@ -1,0 +1,52 @@
+---
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import '../styles/global.css';
+
+type Props = {
+	currentPath: string;
+	title: string;
+	description: string;
+	eyebrow: string;
+	heading: string;
+	emphasis?: string;
+	intro: string;
+};
+
+const { currentPath, title, description, eyebrow, heading, emphasis, intro } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap"
+			rel="stylesheet"
+		/>
+		<title>{title} - Maximos Skandalis</title>
+	</head>
+	<body>
+		<div class="site-shell">
+			<SiteHeader currentPath={currentPath} />
+			<main class="detail-main" aria-labelledby="page-heading">
+				<section class="detail-hero">
+					<div class="detail-hero-label">{eyebrow}</div>
+					<div class="detail-hero-copy">
+						<h1 class="detail-heading" id="page-heading">
+							{heading} {emphasis && <em>{emphasis}</em>}
+						</h1>
+						<p>{intro}</p>
+					</div>
+				</section>
+				<slot />
+			</main>
+			<SiteFooter />
+		</div>
+	</body>
+</html>

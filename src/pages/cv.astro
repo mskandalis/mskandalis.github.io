@@ -1,4 +1,5 @@
 ---
+import { education, publications, researchTalks, responsibilityItems, supervisionProjects, teachingGroups } from '../data/academic';
 import '../styles/global.css';
 
 type CvEntry = {
@@ -34,98 +35,51 @@ const cvSections: CvSection[] = [
 	},
 	{
 		label: 'Education',
-		entries: [
-			{
-				title: 'Ph.D., Computer science and AI',
-				detail: 'CNRS and University of Montpellier, France.',
-				date: 'Current',
-			},
-			{
-				title: 'M.S., Mathematical logic and theoretical computer science',
-				detail: 'Paris Cité University, France.',
-				date: 'Degree',
-			},
-			{
-				title: 'M.A., History and philosophy of science',
-				detail: 'École normale supérieure de Paris (ENS Ulm), France.',
-				date: 'Degree',
-			},
-			{
-				title: 'Ptychio, Classics and linguistics',
-				detail: 'Aristotle University of Thessaloniki, Greece.',
-				date: 'Degree',
-			},
-		],
+		entries: education.map((item) => ({ title: item.title, detail: item.detail, date: item.year })),
 	},
 	{
 		label: 'Publications',
-		entries: [
-			{
-				title: 'Neurosymbolic AI for Natural Language Inference in French',
-				detail:
-					'Maximos Skandalis, Lasha Abzianidze, Richard Moot, Christian Retoré, and Simon Robillard. IWCS 2025, pages 242-253.',
-				date: '2025',
-				href: 'https://aclanthology.org/2025.iwcs-main.21',
-				linkLabel: 'ACL Anthology',
-			},
-			{
-				title: 'New Datasets for Automatic Detection of Textual Entailment and Contradictions in French',
-				detail:
-					'Maximos Skandalis, Richard Moot, Christian Retoré, and Simon Robillard. LREC-COLING 2024, pages 12173-12186.',
-				date: '2024',
-				href: 'https://aclanthology.org/2024.lrec-main.1065',
-				linkLabel: 'ACL Anthology',
-			},
-			{
-				title: 'DACCORD: a dataset for automatic detection of contradictory statements in French',
-				detail: 'Maximos Skandalis, Richard Moot, and Simon Robillard. TALN 2023, Paris, France.',
-				date: '2023',
-				href: 'https://aclanthology.org/2023.jeptalnrecital-long.22',
-				linkLabel: 'ACL Anthology',
-			},
-			{
-				title: 'Global PIQA: Evaluating Commonsense Reasoning Across 100+ Languages and Cultures',
-				detail: 'Tyler A. Chang, Catherine Arnett, and authors at the 5th Multilingual Representation Learning Workshop. Submitted to NeurIPS 2026.',
-				date: '2026',
-				href: 'https://arxiv.org/abs/2510.24081',
-				linkLabel: 'arXiv',
-			},
-		],
+		entries: publications.map((publication) => ({
+			title: publication.title,
+			detail: `${publication.authors} ${publication.venue}`,
+			date: publication.year,
+			href: publication.href,
+			linkLabel: publication.linkLabel,
+		})),
+	},
+	{
+		label: 'Teaching / 272 h',
+		entries: teachingGroups.flatMap((group) =>
+			group.assignments.map((assignment) => ({
+				title: `${group.label}: ${assignment.title}`,
+				detail: `${assignment.programme}. ${assignment.institution}`,
+				date: `${assignment.year} / ${assignment.hours}`,
+			})),
+		),
+	},
+	{
+		label: 'Supervision',
+		entries: supervisionProjects.map((project) => ({ title: project.title, detail: project.detail, date: project.year })),
 	},
 	{
 		label: 'Talks',
-		entries: [
-			{
-				title: 'Deep learning and formal methods for automatic contradiction detection',
-				detail: 'Oral presentation, 2025 Annual Scientific Day of the ICO Key Challenge, Toulouse, France.',
-				date: '2025.12',
-				href: 'https://www.ico-occitanie.fr/wp-content/uploads/2025/07/Programme-Journee-ICO-2025-C.pdf#page=6',
-				linkLabel: 'Event programme',
-			},
-			{
-				title: 'Data quality and neurosymbolic approaches to textual inference',
-				detail: 'Oral presentation, first thematic workshop of the RECAST working group, ENS Paris, France.',
-				date: '2025.11',
-				href: 'https://gt-recast.github.io/events/2025-11-17.html',
-				linkLabel: 'Event programme',
-			},
-		],
+		entries: researchTalks.map((talk) => ({
+			title: talk.title,
+			detail: talk.detail,
+			date: talk.date,
+			href: talk.href,
+			linkLabel: talk.linkLabel,
+		})),
 	},
 	{
-		label: 'Funding and academic record',
-		entries: [
-			{
-				title: 'Doctoral funding',
-				detail:
-					'Funded by the French Ministry of the Armed Forces through the Defence Innovation Agency and by the Cybersecurity Institute of Occitanie.',
-				date: 'Current',
-			},
-			{
-				title: 'Teaching and service',
-				detail: 'University teaching, seminars, mentorship, and service will be added to this record as they become available.',
-				date: 'Record',
-			},
-		],
+		label: 'Responsibilities and funding',
+		entries: responsibilityItems.map((item) => ({
+			title: item.title,
+			detail: item.detail,
+			date: item.period,
+			href: item.href,
+			linkLabel: item.linkLabel,
+		})),
 	},
 ];
 ---
