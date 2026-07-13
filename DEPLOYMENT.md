@@ -1,23 +1,16 @@
-# Deploying to `mskandalis.github.io`
+# Publishing to `mskandalis.github.io`
 
-This is a static Astro site. GitHub Pages and the included GitHub Actions workflow deploy it for free.
+This is a static Astro site. It publishes through GitHub Pages branch hosting and does not require a paid host or GitHub Actions.
 
 ## One-time GitHub setup
 
-1. Create a public GitHub repository named `mskandalis.github.io` under the `mskandalis` account.
-2. Add it as this project's remote and push the `main` branch:
+In the `mskandalis/mskandalis.github.io` repository, open **Settings > Pages** and set:
 
-   ```powershell
-   git remote add origin https://github.com/mskandalis/mskandalis.github.io.git
-   git branch -M main
-   git add .
-   git commit -m "Create research portfolio"
-   git push -u origin main
-   ```
+- **Source:** Deploy from a branch
+- **Branch:** `main`
+- **Folder:** `/docs`
 
-3. In the repository, open **Settings > Pages**, choose **GitHub Actions** as the source, and wait for the workflow to complete.
-
-The site will then be published at `https://mskandalis.github.io`.
+Save the setting. GitHub Pages will then publish the generated site at `https://mskandalis.github.io`.
 
 ## Local development
 
@@ -25,14 +18,21 @@ The site will then be published at `https://mskandalis.github.io`.
 npm run dev
 ```
 
-Build the production site with:
+## Publishing an update
+
+Generate the Pages-ready static files, then commit and push the result:
 
 ```powershell
-npm run build
+npm run pages:build
+git add .
+git commit -m "Update research portfolio"
+git push
 ```
 
-## First content update
+The `docs/` directory is generated from Astro's `dist/` output and includes `.nojekyll` so its hashed `_astro` assets are served correctly.
 
-- Put the supplied portrait at `public/images/portrait.jpg`.
-- Replace the starter research directions and record items in `src/pages/index.astro`.
-- Replace the CV starter entries in `src/pages/cv.astro` with confirmed education, experience, teaching, awards, and publications.
+## Content sources
+
+- Homepage: `src/pages/index.astro`
+- Curriculum vitae: `src/pages/cv.astro`
+- Profile portrait: `public/images/portrait.png`
