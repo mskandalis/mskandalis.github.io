@@ -1,13 +1,17 @@
 ---
 import {
+	coAuthoredPublications,
 	collectiveResponsibilities,
 	education,
+	honoursAwardsScholarships,
 	memberships,
-	organizationalResponsibilities,
+	organisationalResponsibilities,
 	publications,
-	researchTalks,
+	publicOutreach,
+	researchPresentations,
 	responsibilityItems,
 	reviewingAssignments,
+	seasonalSchools,
 	supervisionProjects,
 	teachingGroups,
 } from '../data/academic';
@@ -39,7 +43,7 @@ const cvSections: CvSection[] = [
 			{
 				title: 'Doctoral researcher in artificial intelligence',
 				detail:
-					'Last-year Ph.D. student at LIRMM, CNRS and the University of Montpellier. Research on NLI, contradiction detection, and high-stakes language AI.',
+					'Last-year PhD student at LIRMM, CNRS and the University of Montpellier. Research on NLI, contradiction detection, and high-stakes language AI.',
 				date: 'Current',
 			},
 		],
@@ -49,8 +53,32 @@ const cvSections: CvSection[] = [
 		entries: education.map((item) => ({ title: item.title, detail: item.detail, date: item.year })),
 	},
 	{
-		label: 'Publications',
+		label: 'Seasonal schools',
+		entries: seasonalSchools.map((school) => ({
+			title: school.title,
+			detail: school.detail,
+			date: school.period,
+			href: school.href,
+			linkLabel: school.linkLabel,
+		})),
+	},
+	{
+		label: 'Honours, awards & scholarships',
+		entries: honoursAwardsScholarships.map((award) => ({ title: award.title, detail: award.detail, date: award.period })),
+	},
+	{
+		label: 'Conference proceedings',
 		entries: publications.map((publication) => ({
+			title: publication.title,
+			detail: `${publication.authors} ${publication.venue}`,
+			date: publication.year,
+			href: publication.href,
+			linkLabel: publication.linkLabel,
+		})),
+	},
+	{
+		label: 'Other co-authored publications',
+		entries: coAuthoredPublications.map((publication) => ({
 			title: publication.title,
 			detail: `${publication.authors} ${publication.venue}`,
 			date: publication.year,
@@ -73,14 +101,18 @@ const cvSections: CvSection[] = [
 		entries: supervisionProjects.map((project) => ({ title: project.title, detail: project.detail, date: project.year })),
 	},
 	{
-		label: 'Talks',
-		entries: researchTalks.map((talk) => ({
-			title: talk.title,
-			detail: talk.detail,
-			date: talk.date,
-			href: talk.href,
-			linkLabel: talk.linkLabel,
+		label: 'Presentations',
+		entries: researchPresentations.map((presentation) => ({
+			title: presentation.title,
+			detail: `${presentation.format}. ${presentation.detail}`,
+			date: presentation.date,
+			href: presentation.href,
+			linkLabel: presentation.linkLabel,
 		})),
+	},
+	{
+		label: 'Public outreach',
+		entries: publicOutreach.map((item) => ({ title: item.title, detail: item.detail, date: item.date })),
 	},
 	{
 		label: 'Appointment and funding',
@@ -93,8 +125,8 @@ const cvSections: CvSection[] = [
 		})),
 	},
 	{
-		label: 'Organizational responsibilities',
-		entries: organizationalResponsibilities.map((item) => ({
+		label: 'Organisational responsibilities',
+		entries: organisationalResponsibilities.map((item) => ({
 			title: item.title,
 			detail: item.detail,
 			date: item.period,
@@ -153,7 +185,7 @@ const cvSections: CvSection[] = [
 				<h1 class="cv-name">Maximos<br /><em>Skandalis</em></h1>
 				<div class="cv-intro-copy">
 					<div class="micro-label">Curriculum vitae / 2026</div>
-					<p>Last-year Ph.D. researcher in AI at LIRMM, CNRS and the University of Montpellier.</p>
+					<p>Last-year PhD researcher in AI at LIRMM, CNRS and the University of Montpellier.</p>
 					<a class="cv-contact" href="mailto:maximos.skandalis@cnrs.fr">
 						maximos.skandalis@cnrs.fr
 					</a>

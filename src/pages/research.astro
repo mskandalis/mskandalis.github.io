@@ -1,5 +1,13 @@
 ---
-import { publications, researchDirections, researchTalks } from '../data/academic';
+import { ArrowUpRight } from '@lucide/astro';
+import {
+	coAuthoredPublications,
+	publications,
+	publicOutreach,
+	researchDirections,
+	researchPresentations,
+	researchProfiles,
+} from '../data/academic';
 import AcademicPage from '../layouts/AcademicPage.astro';
 ---
 
@@ -12,6 +20,23 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 	emphasis="structure."
 	intro="Research on neurosymbolic natural language inference, contradiction detection, and reliable language technology for high-stakes contexts."
 >
+	<aside slot="hero-aside" class="research-profile-rail" aria-label="Research profiles">
+		<div class="research-profile-label">Research profiles</div>
+		<div class="research-profile-list">
+			{
+				researchProfiles.map((profile) => (
+					<a class="research-profile-card" href={profile.href} target="_blank" rel="noreferrer">
+						<span class="research-profile-logo">
+							<img src={profile.logoSrc} alt={profile.logoAlt} loading="lazy" />
+						</span>
+						<span>{profile.label}</span>
+						<ArrowUpRight aria-hidden="true" size={15} strokeWidth={1.8} />
+					</a>
+				))
+			}
+		</div>
+	</aside>
+
 	<section class="page-section" aria-labelledby="directions-heading">
 		<div class="page-section-label"><span>Directions</span></div>
 		<div class="page-section-content">
@@ -33,9 +58,9 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 	</section>
 
 	<section class="page-section" aria-labelledby="publications-heading">
-		<div class="page-section-label"><span>Publications</span></div>
+		<div class="page-section-label"><span>Proceedings</span></div>
 		<div class="page-section-content">
-			<h2 class="page-section-title" id="publications-heading">Papers and <em>preprints.</em></h2>
+			<h2 class="page-section-title" id="publications-heading">Conference papers and <em>proceedings.</em></h2>
 			<div class="academic-list">
 				{
 					publications.map((publication) => (
@@ -54,20 +79,62 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 		</div>
 	</section>
 
-	<section class="page-section" aria-labelledby="talks-heading">
-		<div class="page-section-label"><span>Talks</span></div>
+	<section class="page-section" aria-labelledby="coauthored-heading">
+		<div class="page-section-label"><span>Co-authored</span></div>
 		<div class="page-section-content">
-			<h2 class="page-section-title" id="talks-heading">Scientific exchange</h2>
+			<h2 class="page-section-title" id="coauthored-heading">Other collaborative <em>publications.</em></h2>
 			<div class="academic-list">
 				{
-					researchTalks.map((talk) => (
-						<article class="academic-item">
-							<div class="academic-meta"><span>{talk.date}</span><span>Oral presentation</span></div>
+					coAuthoredPublications.map((publication) => (
+						<article class="academic-item academic-item--publication">
+							<div class="academic-meta"><span>{publication.year}</span><span>{publication.role}</span></div>
 							<div>
-								<h3>{talk.title}</h3>
-								<p>{talk.detail}</p>
+								<h3>{publication.title}</h3>
+								<p class="academic-authors">{publication.authors}</p>
+								<p>{publication.venue}</p>
 							</div>
-							<a class="academic-link" href={talk.href} target="_blank" rel="noreferrer">{talk.linkLabel}</a>
+							<a class="academic-link" href={publication.href} target="_blank" rel="noreferrer">{publication.linkLabel}</a>
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section" aria-labelledby="presentations-heading">
+		<div class="page-section-label"><span>Presentations</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="presentations-heading">Oral and poster <em>presentations.</em></h2>
+			<div class="academic-list">
+				{
+					researchPresentations.map((presentation) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{presentation.date}</span><span>{presentation.format}</span></div>
+							<div>
+								<h3>{presentation.title}</h3>
+								<p>{presentation.detail}</p>
+							</div>
+							{presentation.href && <a class="academic-link" href={presentation.href} target="_blank" rel="noreferrer">{presentation.linkLabel}</a>}
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section" aria-labelledby="outreach-heading">
+		<div class="page-section-label"><span>Public outreach</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="outreach-heading">Public <em>engagement.</em></h2>
+			<div class="academic-list">
+				{
+					publicOutreach.map((item) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{item.date}</span><span>Outreach</span></div>
+							<div>
+								<h3>{item.title}</h3>
+								<p>{item.detail}</p>
+							</div>
 						</article>
 					))
 				}

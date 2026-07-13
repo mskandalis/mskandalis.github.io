@@ -28,45 +28,69 @@ export const researchDirections = [
 export const publications = [
 	{
 		year: '2025',
-		role: 'First author',
+		role: 'Conference proceedings',
 		title:
-			'Neurosymbolic AI for Natural Language Inference in French: Combining LLMs and Theorem Provers for Semantic Parsing and Natural Language Reasoning',
+			'Neurosymbolic AI for Natural Language Inference in French: combining LLMs and theorem provers for semantic parsing and natural language reasoning',
 		authors: 'Maximos Skandalis, Lasha Abzianidze, Richard Moot, Christian Retoré, and Simon Robillard.',
-		venue: 'Proceedings of the 16th International Conference on Computational Semantics (IWCS), pages 242-253, Düsseldorf, Germany.',
+		venue: 'Proceedings of the 16th International Conference on Computational Semantics, pages 252–263, Düsseldorf, Germany. Association for Computational Linguistics.',
 		summary: 'LLMs and theorem provers for semantic parsing and natural language reasoning.',
 		href: 'https://aclanthology.org/2025.iwcs-main.21',
 		linkLabel: 'ACL Anthology',
 	},
 	{
 		year: '2024',
-		role: 'First author',
+		role: 'Conference proceedings',
 		title:
-			'New Datasets for Automatic Detection of Textual Entailment and of Contradictions Between Sentences in French',
+			'New datasets for automatic detection of textual entailment and of contradictions between sentences in French',
 		authors: 'Maximos Skandalis, Richard Moot, Christian Retoré, and Simon Robillard.',
-		venue: 'Proceedings of LREC-COLING 2024, pages 12173-12186, Torino, Italy. ELRA and ICCL.',
+		venue: 'Proceedings of the 2024 Joint International Conference on Computational Linguistics, Language Resources and Evaluation (LREC-COLING 2024), Turin, Italy. European Language Resources Association and International Committee on Computational Linguistics.',
 		summary: 'French datasets for automatic textual entailment and contradiction detection.',
 		href: 'https://aclanthology.org/2024.lrec-main.1065',
 		linkLabel: 'ACL Anthology',
 	},
 	{
 		year: '2023',
-		role: 'First author',
+		role: 'Conference proceedings',
 		title:
 			'DACCORD: un jeu de données pour la Détection Automatique d’énonCés COntRaDictoires en français',
 		authors: 'Maximos Skandalis, Richard Moot, and Simon Robillard.',
-		venue: 'Actes de CORIA-TALN 2023, volume 1: travaux de recherche originaux, pages 285-297, Paris, France. ATALA.',
+		venue: 'Actes de CORIA-TALN 2023. Actes de la 30e Conférence sur le Traitement Automatique des Langues Naturelles (TALN), volume 1: travaux de recherche originaux — articles longs, pages 285–297, Paris, France. ATALA.',
 		summary: 'A French dataset for automatic detection of contradictory statements.',
 		href: 'https://aclanthology.org/2023.jeptalnrecital-long.22',
 		linkLabel: 'ACL Anthology',
 	},
 	{
+		year: '2016',
+		role: 'Conference proceedings',
+		title: 'Aristotle and Plato’s Philosophy of Mathematics',
+		authors: 'Maximos Skandalis et al.',
+		venue: 'In K. Boudouris & A. Roth (eds.), The World Congress of Philosophy: The Philosophy of Aristotle (WCP 2016), vol. VI, pp. 254–264. Athens, Greece: Ionia Publications. ISBN: 978-960-7670-90-8.',
+		summary: 'A contribution to the World Congress of Philosophy proceedings on Aristotle and Plato’s philosophy of mathematics.',
+		href: 'https://hal.science/hal-04658183v1',
+		linkLabel: 'HAL',
+	},
+];
+
+export const coAuthoredPublications = [
+	{
 		year: '2026',
-		role: 'Collaborative work',
-		title: 'Global PIQA: Evaluating Commonsense Reasoning Across 100+ Languages and Cultures',
+		role: 'Co-author',
+		title:
+			'Fine-tuning avec peu d’exemples et few-shot learning avec des LLMs pour les tâches d’inférence textuelle et de détection automatique de contradictions pour le français',
+		authors: 'Colin Dievart, Reda Ammari, Tala Aljibbaoui, Maximos Skandalis, and Michael Sioutis.',
+		venue: 'Université de Montpellier, 2026.',
+		summary: 'Few-shot learning with LLMs for textual inference and automatic contradiction detection in French.',
+		href: 'https://hal.science/hal-05649167',
+		linkLabel: 'HAL',
+	},
+	{
+		year: '2026',
+		role: 'Co-author',
+		title: 'Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures',
 		authors:
-			'Tyler A. Chang, Catherine Arnett, and authors at the 5th Multilingual Representation Learning Workshop.',
-		venue: 'Submitted to NeurIPS 2026.',
-		summary: 'A multilingual and multicultural evaluation of commonsense reasoning.',
+			'Tyler A. Chang, Catherine Arnett, and Authors at the 5th Multilingual Representation Learning Workshop.',
+		venue: 'arXiv:2510.24081. Submitted to NeurIPS 2026.',
+		summary: 'A multilingual and multicultural evaluation of physical commonsense reasoning.',
 		href: 'https://arxiv.org/abs/2510.24081',
 		linkLabel: 'arXiv',
 	},
@@ -75,16 +99,16 @@ export const publications = [
 export const education = [
 	{
 		year: 'Current',
-		title: 'Ph.D., Computer Science and AI',
+		title: 'PhD, Computer Science and AI',
 		detail: 'CNRS and University of Montpellier, France.',
 	},
 	{
-		year: 'M.S.',
+		year: 'MSc',
 		title: 'Mathematical Logic and Theoretical Computer Science',
 		detail: 'Paris Cité University, France.',
 	},
 	{
-		year: 'M.A.',
+		year: 'MA',
 		title: 'History and Philosophy of Science',
 		detail: 'École normale supérieure de Paris (ENS Ulm), France.',
 	},
@@ -95,20 +119,152 @@ export const education = [
 	},
 ];
 
-export const researchTalks = [
+export const seasonalSchools = [
 	{
-		date: '2025.12',
+		period: '2025.12',
+		title: '153rd IHEDN Youth Cycle',
+		detail: '15–19 December 2025, Military School of Paris. First non-French EU citizen accepted; final grade: 20 out of 20.',
+		href: 'https://ihedn.fr/wp-content/uploads/2026/01/Liste-auditeurs-153e-CJ.pdf',
+		linkLabel: 'List of auditors',
+	},
+	{
+		period: '2025.03',
+		title: '2nd ELLIS Winter School on Foundation Models (FoMo 2025)',
+		detail: '18–21 March 2025, Amsterdam, the Netherlands.',
+	},
+	{
+		period: '2021.07–08',
+		title: '32nd European Summer School in Logic, Language and Information (ESSLLI)',
+		detail: '26 July–13 August 2021, online.',
+	},
+];
+
+export const honoursAwardsScholarships = [
+	{
+		period: '2025',
+		title: 'Erasmus+ Scholarship',
+		detail: 'Scholarship award.',
+	},
+	{
+		period: '2022-2025',
+		title: 'PhD fellowship, Defence Innovation Agency (AID)',
+		detail: 'Fellowship from the Defence Innovation Agency of the General Directorate of Armament (DGA), French Ministry of the Armed Forces; one of the three most prestigious national scholarships.',
+	},
+	{
+		period: '2022-2025',
+		title: 'PhD fellowship, Cybersecurity Institute of Occitanie (ICO)',
+		detail: 'Doctoral fellowship.',
+	},
+	{
+		period: '2018-2019',
+		title: 'Scholarship of the French Government (BGF)',
+		detail: 'Awarded during study for the first Master’s degree.',
+	},
+	{
+		period: '2015',
+		title: 'FFRM 2015 participation stipend',
+		detail: 'Stipend for conference participation.',
+	},
+];
+
+export const researchPresentations = [
+	{
+		date: '2025.12.05',
+		format: 'Oral presentation',
 		title: 'Apprentissage profond et méthodes formelles pour la détection automatique d’énoncés contradictoires',
-		detail: 'Oral presentation. 2025 Annual Scientific Day of the ICO Key Challenge, Toulouse, France.',
+		detail: 'Application à la détection de désinformations. 2025 Annual Scientific Day of the ICO Key Challenge, Toulouse, France. Cybersecurity Institute of Occitanie.',
 		href: 'https://www.ico-occitanie.fr/wp-content/uploads/2025/07/Programme-Journee-ICO-2025-C.pdf#page=6',
 		linkLabel: 'Event programme',
 	},
 	{
-		date: '2025.11',
+		date: '2025.11.17',
+		format: 'Oral presentation',
 		title: 'Qualité des données et approches neurosymboliques pour les tâches d’inférence textuelle et de détection automatique de contradictions',
-		detail: 'Oral presentation. First thematic workshop of the RECAST working group, ENS Paris, France.',
+		detail: 'First Thematic Workshop of the RECAST working group, ENS Paris, France.',
 		href: 'https://gt-recast.github.io/events/2025-11-17.html',
 		linkLabel: 'Event programme',
+	},
+	{
+		date: '2025.06.06',
+		format: 'Poster presentation',
+		title: 'Hybrid AI with LLMs and Theorem Provers for Semantic Parsing and Natural Language Inference for French',
+		detail: 'Young Researchers’ Day of the MIPS Cluster, in coordination with Doctoral School I2S, Montpellier, France.',
+	},
+	{
+		date: '2025.03.20',
+		format: 'Poster presentation',
+		title: 'Hybrid AI with LLMs and Theorem Provers for Semantic Parsing and Natural Language Inference for French',
+		detail: 'ELLIS Winter School on Foundation Models (FoMo 2025), Amsterdam, the Netherlands. ELLIS Unit Amsterdam, University of Amsterdam.',
+		href: 'https://hal.science/hal-05002405v1',
+		linkLabel: 'HAL',
+	},
+	{
+		date: '2024.07.12',
+		format: 'Oral presentation',
+		title: 'Détection des désinformations et détection automatique d’inférences textuelles et de contradictions: nouveaux jeux de données pour le français et l’intérêt des approches hybrides et logiques',
+		detail: '2024 Annual Scientific Day of the ICO Key Challenge, Montpellier, France. Cybersecurity Institute of Occitanie.',
+		href: 'https://www.ico-occitanie.fr/wp-content/uploads/2024/06/Journee-ICO-12-juillet-2024-Maximos-Skandalis.pdf',
+		linkLabel: 'Slides',
+	},
+	{
+		date: '2024.06.21',
+		format: 'Poster presentation',
+		title: 'New Datasets for Automatic Detection of Textual Entailment and of Contradictions between Sentences in French',
+		detail: 'Young Researchers’ Day of the MIPS Cluster, in coordination with Doctoral School I2S, Montpellier, France.',
+	},
+	{
+		date: '2023.11.13',
+		format: 'Oral presentation',
+		title: 'Apprentissage profond et méthodes formelles pour la détection automatique d’énoncés contradictoires',
+		detail: 'Application à la détection de désinformations. Journée sur la recherche en Traitement Automatique des Langues pour la Défense, Bruz-Rennes, France. DGA Maîtrise de l’Information.',
+	},
+	{
+		date: '2015.10.07–10',
+		format: 'Poster presentation',
+		title: 'Animals’ Consciousness and Human Self-Consciousness',
+		detail: 'FENS Featured Regional Meeting 2015, Thessaloniki, Greece.',
+		href: 'https://doi.org/10.14293/P2199-8442.1.SOP-LIFE.PCZST5.v1',
+		linkLabel: 'DOI',
+	},
+];
+
+export const publicOutreach = [
+	{
+		date: '2026.01.23',
+		title: 'Representation of Doctoral School 166: Information, Structures and Systems (I2S)',
+		detail: 'Testimonials by doctoral students from the seven Doctoral Schools associated with the Doctoral College. Welcome Day for PhD Candidates, Doctoral College of the University of Montpellier.',
+	},
+	{
+		date: '2024.01.19',
+		title: 'Representation of Doctoral School 166: Information, Structures and Systems (I2S)',
+		detail: 'Testimonials by doctoral students from the seven Doctoral Schools associated with the Doctoral College. Welcome Day for PhD Candidates, Doctoral College of the University of Montpellier.',
+	},
+];
+
+export const researchProfiles = [
+	{
+		label: 'ACL Anthology',
+		href: 'https://aclanthology.org/people/maximos-skandalis',
+		logoSrc: 'https://aclanthology.org/aclicon.ico',
+		logoAlt: 'ACL Anthology mark',
+	},
+	{
+		label: 'HAL',
+		href: 'https://hal.science/search/index/q/*/authIdHal_s/maximos-skandalis',
+		logoSrc: 'https://hal.science/favicon.ico',
+		logoAlt: 'HAL mark',
+	},
+	{
+		label: 'DBLP',
+		href: 'https://dblp.org/pid/372/2359.html',
+		logoSrc: 'https://dblp.org/img/dblp.icon.192x192.png',
+		logoAlt: 'DBLP mark',
+	},
+	{
+		label: 'Semantic Scholar',
+		href: 'https://www.semanticscholar.org/author/Maximos-Skandalis/2257975631',
+		logoSrc: 'https://cdn.semanticscholar.org/6ff0b6e01240bdce/img/favicon-196x196.png',
+		logoAlt: 'Semantic Scholar mark',
 	},
 ];
 
@@ -286,7 +442,7 @@ export const responsibilityItems = [
 		category: 'Teaching',
 		title: 'University teaching',
 		detail:
-			'272 reported teaching hours across lectures, tutorials, and practical sessions at the Faculty of Sciences and Polytech Montpellier.',
+			'272 teaching hours across lectures, tutorials, and practical sessions at the Faculty of Sciences and Polytech Montpellier.',
 		href: '/teaching/',
 		linkLabel: 'Teaching record',
 	},
@@ -308,7 +464,7 @@ export const responsibilityItems = [
 	},
 ];
 
-export const organizationalResponsibilities = [
+export const organisationalResponsibilities = [
 	{
 		period: '2026.05',
 		category: 'Programme committee',
@@ -344,6 +500,7 @@ export const organizationalResponsibilities = [
 		category: 'Community',
 		title: 'I2S Doctoral School Alumni Network',
 		detail: 'Founder and coordinator.',
+		links: [{ label: 'LinkedIn group', href: 'https://www.linkedin.com/groups/12995355' }],
 	},
 ];
 
@@ -373,28 +530,28 @@ export const collectiveResponsibilities = [
 		period: '2023-2026',
 		category: 'Elected role',
 		title: 'LIRMM Laboratory Council',
-		detail: 'Elected Ph.D. student representative.',
+		detail: 'Elected PhD student representative.',
 		links: [{ label: 'LIRMM', href: 'https://www.lirmm.fr/' }],
 	},
 	{
 		period: '2024-2026',
 		category: 'Elected role',
 		title: 'Information, Structures and Systems (I2S) Doctoral School Council',
-		detail: 'Elected Ph.D. student representative.',
+		detail: 'Elected PhD student representative.',
 		links: [{ label: 'I2S Doctoral School', href: 'https://edi2s.umontpellier.fr/' }],
 	},
 	{
 		period: '2024-2026',
 		category: 'Student representation',
 		title: 'Mathematics, Computer Science, Physics and Systems (MIPS) Cluster Council',
-		detail: 'Ph.D. student representative at the University of Montpellier.',
+		detail: 'PhD student representative at the University of Montpellier.',
 		links: [{ label: 'MIPS cluster', href: 'https://www.umontpellier.fr/en/recherche/poles-de-recherche/pole-mips' }],
 	},
 	{
 		period: '2024-2026',
 		category: 'Student representation',
 		title: 'Doctoral College (CDUM) Council',
-		detail: 'Ph.D. student representative at the University of Montpellier.',
+		detail: 'PhD student representative at the University of Montpellier.',
 		links: [{ label: 'Doctoral College', href: 'https://collegedoctoral.umontpellier.fr/en/accueil-college-doctoral-de-luniversite-de-montpellier-en' }],
 	},
 	{
@@ -402,6 +559,12 @@ export const collectiveResponsibilities = [
 		category: 'Academic service',
 		title: 'HRS4R Strategic Group, University of Montpellier',
 		detail: 'Member of the HRS4R strategic group.',
+		links: [
+			{
+				label: 'HRS4R renewal report',
+				href: 'https://www.umontpellier.fr/wp-content/uploads/2024/11/1-EN_UM_HRS4R_renewal_report_2024.pdf#page=76',
+			},
+		],
 	},
 ];
 
@@ -437,12 +600,5 @@ export const newsItems = [
 		status: 'RECAST thematic workshop',
 		detail: 'Oral presentation at the first thematic workshop of the RECAST working group at ENS Paris.',
 		href: 'https://gt-recast.github.io/events/2025-11-17.html',
-	},
-	{
-		date: '2026.07',
-		title: 'Research website relaunch',
-		status: 'Site update',
-		detail: 'A new public record for papers, teaching, supervision, and notes from the research process.',
-		href: '/about/',
 	},
 ];

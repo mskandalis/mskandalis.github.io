@@ -1,12 +1,12 @@
 ---
-import { education } from '../data/academic';
+import { education, honoursAwardsScholarships, seasonalSchools } from '../data/academic';
 import AcademicPage from '../layouts/AcademicPage.astro';
 ---
 
 <AcademicPage
 	currentPath="/record/"
 	title="Academic Record"
-	description="Academic training, education, and doctoral funding for Maximos Skandalis."
+	description="Academic training, seasonal schools, and honours, awards and scholarships for Maximos Skandalis."
 	eyebrow="04 / Academic record"
 	heading="Training across"
 	emphasis="disciplines."
@@ -32,25 +32,43 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 		</div>
 	</section>
 
-	<section class="page-section" aria-labelledby="funding-heading">
-		<div class="page-section-label"><span>Funding</span></div>
+	<section class="page-section" aria-labelledby="schools-heading">
+		<div class="page-section-label"><span>Seasonal schools</span></div>
 		<div class="page-section-content">
-			<h2 class="page-section-title" id="funding-heading">Research support</h2>
+			<h2 class="page-section-title" id="schools-heading">Seasonal <em>schools.</em></h2>
 			<div class="academic-list">
-				<article class="academic-item">
-					<div class="academic-meta"><span>Current</span><span>Ph.D.</span></div>
-					<div>
-						<h3>Defence Innovation Agency</h3>
-						<p>Doctoral funding from the French Ministry of the Armed Forces through the Defence Innovation Agency.</p>
-					</div>
-				</article>
-				<article class="academic-item">
-					<div class="academic-meta"><span>Current</span><span>Ph.D.</span></div>
-					<div>
-						<h3>Cybersecurity Institute of Occitanie</h3>
-						<p>Doctoral funding and research support from the Cybersecurity Institute of Occitanie.</p>
-					</div>
-				</article>
+				{
+					seasonalSchools.map((school) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{school.period}</span><span>School</span></div>
+							<div>
+								<h3>{school.title}</h3>
+								<p>{school.detail}</p>
+							</div>
+							{school.href && <a class="academic-link" href={school.href} target="_blank" rel="noreferrer">{school.linkLabel}</a>}
+						</article>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section" aria-labelledby="honours-heading">
+		<div class="page-section-label"><span>Honours</span></div>
+		<div class="page-section-content">
+			<h2 class="page-section-title" id="honours-heading">Honours, awards & <em>scholarships.</em></h2>
+			<div class="academic-list">
+				{
+					honoursAwardsScholarships.map((award) => (
+						<article class="academic-item">
+							<div class="academic-meta"><span>{award.period}</span><span>Honour</span></div>
+							<div>
+								<h3>{award.title}</h3>
+								<p>{award.detail}</p>
+							</div>
+						</article>
+					))
+				}
 			</div>
 		</div>
 	</section>

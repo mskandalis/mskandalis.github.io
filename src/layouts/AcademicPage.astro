@@ -14,6 +14,7 @@ type Props = {
 };
 
 const { currentPath, title, description, eyebrow, heading, emphasis, intro } = Astro.props;
+const hasHeroAside = Astro.slots.has('hero-aside');
 ---
 
 <!doctype html>
@@ -35,7 +36,7 @@ const { currentPath, title, description, eyebrow, heading, emphasis, intro } = A
 		<div class="site-shell">
 			<SiteHeader currentPath={currentPath} />
 			<main class="detail-main" aria-labelledby="page-heading">
-				<section class="detail-hero">
+				<section class:list={['detail-hero', { 'detail-hero--with-aside': hasHeroAside }]}>
 					<div class="detail-hero-label">{eyebrow}</div>
 					<div class="detail-hero-copy">
 						<h1 class="detail-heading" id="page-heading">
@@ -43,6 +44,7 @@ const { currentPath, title, description, eyebrow, heading, emphasis, intro } = A
 						</h1>
 						<p>{intro}</p>
 					</div>
+					{hasHeroAside && <aside class="detail-hero-aside"><slot name="hero-aside" /></aside>}
 				</section>
 				<slot />
 			</main>

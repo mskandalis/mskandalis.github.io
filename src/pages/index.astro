@@ -8,7 +8,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 	index: `P.${publication.year.slice(-2)}`,
 	kind: publication.role,
 	title: publication.title,
-	description: `${publication.venue} ${publication.summary}`,
+	description: publication.summary,
 	status: publication.linkLabel,
 	href: publication.href,
 }));
@@ -22,7 +22,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
-			content="The academic portfolio of Maximos Skandalis, a Ph.D. researcher in AI at LIRMM, CNRS and the University of Montpellier."
+			content="The academic portfolio of Maximos Skandalis, a PhD researcher in AI at LIRMM, CNRS and the University of Montpellier."
 		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,7 +68,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 						<h2 class="section-title" id="about-heading">Language reasoning, made <em>rigorous.</em></h2>
 						<div>
 							<p class="prose">
-								I am a last-year Ph.D. student in AI at LIRMM, CNRS and the University of Montpellier.
+								I am a last-year PhD student in AI at LIRMM, CNRS and the University of Montpellier.
 								My research combines LLMs with logic and linguistic formalisms for natural language inference
 								and automatic contradiction detection.
 							</p>
@@ -182,7 +182,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 								</a>
 								<a class="record-card" href="/teaching/">
 									<div class="micro-label">Teaching</div>
-									<h3>272 reported hours</h3>
+									<h3>272 teaching hours</h3>
 									<p>Lectures, tutorials, practical sessions, and student research supervision.</p>
 								</a>
 								<a class="record-card" href="/responsibilities/">

@@ -2,7 +2,7 @@
 import {
 	collectiveResponsibilities,
 	memberships,
-	organizationalResponsibilities,
+	organisationalResponsibilities,
 	responsibilityItems,
 	reviewingAssignments,
 	supervisionProjects,
@@ -43,10 +43,10 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 	<section class="page-section" aria-labelledby="organisation-heading">
 		<div class="page-section-label"><span>Organisation</span></div>
 		<div class="page-section-content">
-			<h2 class="page-section-title" id="organisation-heading">Organizational <em>responsibilities.</em></h2>
+			<h2 class="page-section-title" id="organisation-heading">Organisational <em>responsibilities.</em></h2>
 			<div class="academic-list">
 				{
-					organizationalResponsibilities.map((item) => (
+					organisationalResponsibilities.map((item) => (
 						<article class="academic-item">
 							<div class="academic-meta"><span>{item.period}</span><span>{item.category}</span></div>
 							<div>
