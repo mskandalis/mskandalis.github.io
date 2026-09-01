@@ -1,5 +1,6 @@
 ---
-import { Menu } from '@lucide/astro';
+import { Menu, Search } from '@lucide/astro';
+import SiteSearch from './SiteSearch.astro';
 
 type Props = {
 	currentPath?: string;
@@ -31,6 +32,10 @@ const navigation = [
 		}
 	</nav>
 	<div class="header-actions">
+		<button class="header-icon-button" type="button" data-search-open aria-label="Search website" title="Search website" aria-keyshortcuts="Control+K Meta+K">
+			<Search aria-hidden="true" size={17} strokeWidth={1.8} />
+			<span class="visually-hidden">Search website</span>
+		</button>
 		<a class="header-link" href="/cv/" aria-current={currentPath === '/cv/' ? 'page' : undefined}>CV</a>
 		<details class="mobile-nav">
 			<summary aria-label="Open site navigation" title="Open site navigation">
@@ -50,3 +55,4 @@ const navigation = [
 		</details>
 	</div>
 </header>
+<SiteSearch />

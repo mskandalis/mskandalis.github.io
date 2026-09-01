@@ -1,4 +1,5 @@
 ---
+import BackToTop from '../components/BackToTop.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import '../styles/global.css';
@@ -33,7 +34,7 @@ const hasHeroAside = Astro.slots.has('hero-aside');
 		<title>{title} - Maximos Skandalis</title>
 	</head>
 	<body>
-		<div class="site-shell">
+		<div class="site-shell" id="page-top">
 			<SiteHeader currentPath={currentPath} />
 			<main class="detail-main" aria-labelledby="page-heading">
 				<section class:list={['detail-hero', { 'detail-hero--with-aside': hasHeroAside }]}>
@@ -49,6 +50,7 @@ const hasHeroAside = Astro.slots.has('hero-aside');
 				<slot />
 			</main>
 			<SiteFooter />
+			<BackToTop />
 		</div>
 	</body>
 </html>

@@ -12,7 +12,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 	emphasis="disciplines."
 	intro="A path across artificial intelligence, mathematical logic, history and philosophy of science, classics, and linguistics."
 >
-	<section class="page-section" aria-labelledby="education-heading">
+	<section class="page-section" id="education" aria-labelledby="education-heading">
 		<div class="page-section-label"><span>Education</span></div>
 		<div class="page-section-content">
 			<h2 class="page-section-title" id="education-heading">Academic training</h2>
@@ -20,11 +20,12 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 				{
 					education.map((item) => (
 						<article class="academic-item">
-							<div class="academic-meta"><span>{item.year}</span><span>Degree</span></div>
+							<div class="academic-meta"><span>{item.year}</span><span>{item.current ? 'Current degree' : item.level ?? 'Degree'}</span></div>
 							<div>
 								<h3>{item.title}</h3>
 								<p>{item.detail}</p>
 							</div>
+							{item.href && <a class="academic-link" href={item.href} target="_blank" rel="noreferrer">{item.linkLabel}</a>}
 						</article>
 					))
 				}
@@ -32,7 +33,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 		</div>
 	</section>
 
-	<section class="page-section" aria-labelledby="schools-heading">
+	<section class="page-section" id="seasonal-schools" aria-labelledby="schools-heading">
 		<div class="page-section-label"><span>Seasonal schools</span></div>
 		<div class="page-section-content">
 			<h2 class="page-section-title" id="schools-heading">Seasonal <em>schools.</em></h2>
@@ -53,7 +54,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 		</div>
 	</section>
 
-	<section class="page-section" aria-labelledby="honours-heading">
+	<section class="page-section" id="honours" aria-labelledby="honours-heading">
 		<div class="page-section-label"><span>Honours</span></div>
 		<div class="page-section-content">
 			<h2 class="page-section-title" id="honours-heading">Honours, awards & <em>scholarships.</em></h2>

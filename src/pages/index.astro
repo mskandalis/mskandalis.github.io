@@ -1,5 +1,7 @@
 ---
+import { ArrowUpRight } from '@lucide/astro';
 import '../styles/global.css';
+import BackToTop from '../components/BackToTop.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { education, newsItems, publications, researchDirections } from '../data/academic';
@@ -22,7 +24,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 		<meta name="generator" content={Astro.generator} />
 		<meta
 			name="description"
-			content="The academic portfolio of Maximos Skandalis, a PhD researcher in AI at LIRMM, CNRS and the University of Montpellier."
+			content="The academic portfolio of Maximos Skandalis, a PhD researcher in AI at LIRMM, CNRS & University of Montpellier."
 		/>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,7 +35,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 		<title>Maximos Skandalis - AI Research</title>
 	</head>
 	<body>
-		<div class="site-shell">
+		<div class="site-shell" id="page-top">
 			<SiteHeader currentPath="/" />
 
 			<main>
@@ -45,13 +47,14 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 							<p class="hero-summary">Neurosymbolic AI for natural language inference and automatic contradiction detection.</p>
 							<div class="current-status">
 								<strong>Current focus</strong>
-								LLMs, logic, linguistic formalisms, and reliable language technology.
+								LLMs, computational linguistics, logical formalisms, and neurosymbolic and explainable AI.
 							</div>
 						</div>
 					</div>
 					<figure class="portrait-panel">
 						<div class="portrait-frame">
-							<img class="portrait-image" src="/images/portrait.png" alt="Portrait of Maximos Skandalis" />
+							<img class="portrait-image" src="/images/portrait.png" alt="Portrait of Maximos Skandalis" fetchpriority="high" />
+							<span class="portrait-copyright">© Maximos Skandalis</span>
 						</div>
 						<figcaption class="portrait-caption">
 							<span>Portrait / 01</span>
@@ -68,12 +71,12 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 						<h2 class="section-title" id="about-heading">Language reasoning, made <em>rigorous.</em></h2>
 						<div>
 							<p class="prose">
-								I am a last-year PhD student in AI at LIRMM, CNRS and the University of Montpellier.
-								My research combines LLMs with logic and linguistic formalisms for natural language inference
+								I am a last-year PhD student in AI at LIRMM, CNRS & University of Montpellier.
+								My research combines LLMs with computational linguistics and logical formalisms for natural language inference
 								and automatic contradiction detection.
 							</p>
 							<p class="prose">
-								I am especially interested in reliable language technologies for high-stakes applications, where
+								I am especially interested in explainable AI for high-stakes applications, where
 								formal reasoning and careful evaluation matter as much as raw capability.
 							</p>
 							<div class="small-stack" style="margin-top: 2.5rem">
@@ -83,7 +86,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 								</div>
 								<div>
 									<div class="micro-label">Research environment</div>
-									<p>LIRMM, CNRS and the University of Montpellier, France.</p>
+									<p>LIRMM, CNRS & University of Montpellier, France.</p>
 								</div>
 							</div>
 						</div>
@@ -99,7 +102,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 							<h2 class="section-title" id="research-heading">Research with <em>consequences.</em></h2>
 							<p class="research-note">
 								A research agenda grounded in formal methods, linguistic structure, and the practical demands of
-								reliable natural language technology.
+								explainable AI.
 							</p>
 						</div>
 						<div class="project-grid">
@@ -116,7 +119,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 										</div>
 										<div class="card-footer">
 											<span class="tag">{direction.status}</span>
-											<span class="link-arrow" aria-hidden="true"></span>
+											<ArrowUpRight class="link-arrow-icon" aria-hidden="true" size={19} strokeWidth={1.8} />
 										</div>
 									</article>
 								))
@@ -143,7 +146,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 										</div>
 										<div class="card-footer">
 											<span class="tag">{publication.status}</span>
-											<span class="link-arrow" aria-hidden="true"></span>
+											<ArrowUpRight class="link-arrow-icon" aria-hidden="true" size={19} strokeWidth={1.8} />
 										</div>
 									</a>
 								))
@@ -229,11 +232,12 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 							Research, education, talks, funding, and scholarly output collected in a focused, printable format.
 						</p>
 					</div>
-					<a class="cv-link link-arrow" href="/cv/">Open CV</a>
+					<a class="cv-link" href="/cv/">Open CV <ArrowUpRight class="link-arrow-icon" aria-hidden="true" size={17} strokeWidth={1.8} /></a>
 				</section>
 			</main>
 
 			<SiteFooter />
+			<BackToTop />
 		</div>
 	</body>
 </html>

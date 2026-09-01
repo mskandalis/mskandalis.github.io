@@ -1,0 +1,135 @@
+---
+import { ArrowUpRight, Search, X } from '@lucide/astro';
+import { siteSearchEntries } from '../data/search';
+---
+
+<dialog class="site-search-dialog" id="site-search-dialog" aria-labelledby="site-search-heading">
+	<div class="site-search-shell">
+		<div class="site-search-bar">
+			<Search aria-hidden="true" size={19} strokeWidth={1.8} />
+			<label class="visually-hidden" for="site-search-input">Search the website</label>
+			<input id="site-search-input" type="search" autocomplete="off" placeholder="Search the academic record" />
+			<button class="site-search-close" type="button" data-search-close aria-label="Close search" title="Close search">
+				<X aria-hidden="true" size={18} strokeWidth={1.8} />
+			</button>
+		</div>
+		<div class="site-search-summary">
+			<h2 id="site-search-heading">Search</h2>
+			<span data-search-count>Search the academic record</span>
+		</div>
+		<div class="site-search-results" data-search-results aria-live="polite"></div>
+	</div>
+</dialog>
+
+<script define:vars={{ siteSearchEntries }}>
+	const dialog = document.querySelector('#site-search-dialog');
+	const input = document.querySelector('#site-search-input');
+	const results = document.querySelector('[data-search-results]');
+	const resultCount = document.querySelector('[data-search-count]');
+
+	const normalise = (value) =>
+		value
+			.normalize('NFD')
+			.replace(/[\u0300-\u036f]/g, '')
+			.toLocaleLowerCase();
+
+	const clearResults = () => {
+		results.replaceChildren();
+	};
+
+	const closeSearch = () => {
+		if (dialog.open) dialog.close();
+	};
+
+	const addResult = (entry) => {
+		const link = document.createElement('a');
+		const category = document.createElement('span');
+		const title = document.createElement('span');
+		const icon = document.createElement('span');
+
+		link.className = 'site-search-result';
+		link.href = entry.href;
+		category.className = 'site-search-result-category';
+		category.textContent = entry.category;
+		title.className = 'site-search-result-title';
+		title.textContent = entry.title;
+		icon.className = 'site-search-result-icon';
+		icon.textContent = '↗';
+
+		link.append(category, title, icon);
+		link.addEventListener('click', closeSearch);
+		results.append(link);
+	};
+
+	const renderResults = (query) => {
+		const terms = normalise(query).trim().split(/\s+/).filter(Boolean);
+		const matches = siteSearchEntries
+			.map((entry) => {
+				const title = normalise(entry.title);
+				const category = normalise(entry.category);
+				const searchableText = normalise(`${entry.title} ${entry.category} ${entry.text}`);
+				if (terms.length && !terms.every((term) => searchableText.includes(term))) return null;
+
+				const score = terms.reduce((total, term) => {
+					if (title.startsWith(term)) return total + 12;
+					if (title.includes(term)) return total + 8;
+					if (category.includes(term)) return total + 5;
+					return total + 2;
+				}, 0);
+
+				return { entry, score };
+			})
+			.filter(Boolean)
+			.sort((first, second) => second.score - first.score || first.entry.title.localeCompare(second.entry.title))
+			.slice(0, 10);
+
+		clearResults();
+
+		if (!terms.length) {
+			resultCount.textContent = 'Search the academic record';
+			return;
+		}
+
+		resultCount.textContent = `${matches.length} ${matches.length === 1 ? 'result' : 'results'}`;
+
+		if (!matches.length) {
+			const empty = document.createElement('p');
+			empty.className = 'site-search-empty';
+			empty.textContent = 'No matching records.';
+			results.append(empty);
+			return;
+		}
+
+		matches.forEach(({ entry }) => addResult(entry));
+	};
+
+	const openSearch = () => {
+		if (!dialog.open) dialog.showModal();
+		renderResults(input.value);
+		window.setTimeout(() => input.focus(), 0);
+	};
+
+	document.querySelectorAll('[data-search-open]').forEach((button) => button.addEventListener('click', openSearch));
+	document.querySelector('[data-search-close]')?.addEventListener('click', closeSearch);
+	input.addEventListener('input', () => renderResults(input.value));
+	dialog.addEventListener('click', (event) => {
+		if (event.target === dialog) closeSearch();
+	});
+	dialog.addEventListener('close', () => {
+		input.value = '';
+		clearResults();
+		resultCount.textContent = 'Search the academic record';
+	});
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && dialog.open) {
+			event.preventDefault();
+			closeSearch();
+			return;
+		}
+
+		if ((event.ctrlKey || event.metaKey) && event.key.toLocaleLowerCase() === 'k') {
+			event.preventDefault();
+			openSearch();
+		}
+	});
+</script>

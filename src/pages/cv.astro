@@ -16,6 +16,7 @@ import {
 	teachingGroups,
 } from '../data/academic';
 import '../styles/global.css';
+import BackToTop from '../components/BackToTop.astro';
 
 type CvEntry = {
 	title: string;
@@ -35,7 +36,7 @@ const cvSections: CvSection[] = [
 	{
 		label: 'Research interests',
 		summary:
-			'Neurosymbolic AI for natural language inference and automatic contradiction detection: combining LLMs, logic, and linguistic formalisms for reliable language technology.',
+			'Neurosymbolic AI for natural language inference and automatic contradiction detection: combining LLMs with computational linguistics and logical formalisms for explainable AI.',
 	},
 	{
 		label: 'Experience',
@@ -43,14 +44,20 @@ const cvSections: CvSection[] = [
 			{
 				title: 'Doctoral researcher in artificial intelligence',
 				detail:
-					'Last-year PhD student at LIRMM, CNRS and the University of Montpellier. Research on NLI, contradiction detection, and high-stakes language AI.',
+					'Last-year PhD student at LIRMM, CNRS & University of Montpellier. Research on NLI, contradiction detection, and high-stakes language AI.',
 				date: 'Current',
 			},
 		],
 	},
 	{
 		label: 'Education',
-		entries: education.map((item) => ({ title: item.title, detail: item.detail, date: item.year })),
+		entries: education.map((item) => ({
+			title: item.title,
+			detail: item.detail,
+			date: item.current ? 'Current degree' : item.level ? `${item.year} / ${item.level}` : item.year,
+			href: item.href,
+			linkLabel: item.linkLabel,
+		})),
 	},
 	{
 		label: 'Seasonal schools',
@@ -175,7 +182,7 @@ const cvSections: CvSection[] = [
 		<title>CV - Maximos Skandalis</title>
 	</head>
 	<body>
-		<main class="cv-page">
+		<main class="cv-page" id="page-top">
 			<header class="cv-page-header">
 				<a class="cv-back" href="/">Portfolio</a>
 				<button class="cv-print" type="button">Print / save PDF</button>
@@ -185,9 +192,9 @@ const cvSections: CvSection[] = [
 				<h1 class="cv-name">Maximos<br /><em>Skandalis</em></h1>
 				<div class="cv-intro-copy">
 					<div class="micro-label">Curriculum vitae / 2026</div>
-					<p>Last-year PhD researcher in AI at LIRMM, CNRS and the University of Montpellier.</p>
-					<a class="cv-contact" href="mailto:maximos.skandalis@cnrs.fr">
-						maximos.skandalis@cnrs.fr
+					<p>Last-year PhD researcher in AI at LIRMM, CNRS & University of Montpellier.</p>
+					<a class="cv-contact" href="mailto:mskandalis@acm.org">
+						mskandalis@acm.org
 					</a>
 					<div class="cv-profile-links">
 						<a class="cv-contact" href="https://orcid.org/0000-0003-2361-5115" target="_blank" rel="noreferrer">ORCID</a>
@@ -232,6 +239,7 @@ const cvSections: CvSection[] = [
 				<p class="cv-footnote">Last updated July 2026. This CV grows with the work.</p>
 			</div>
 		</main>
+		<BackToTop />
 
 		<script>
 			document.querySelector<HTMLButtonElement>('.cv-print')?.addEventListener('click', () => window.print());

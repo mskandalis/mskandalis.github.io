@@ -1,5 +1,6 @@
 ---
-import { ArrowUpRight } from '@lucide/astro';
+import { ArrowUpRight, Copy } from '@lucide/astro';
+import { bibtexEntries } from '../data/bibtex';
 import {
 	coAuthoredPublications,
 	publications,
@@ -7,6 +8,7 @@ import {
 	researchDirections,
 	researchPresentations,
 	researchProfiles,
+	researchRepositories,
 } from '../data/academic';
 import AcademicPage from '../layouts/AcademicPage.astro';
 ---
@@ -16,9 +18,9 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 	title="Research"
 	description="Research, publications, and talks by Maximos Skandalis on neurosymbolic natural language inference and contradiction detection."
 	eyebrow="02 / Research"
-	heading="Reasoning with"
-	emphasis="structure."
-	intro="Research on neurosymbolic natural language inference, contradiction detection, and reliable language technology for high-stakes contexts."
+	heading="Large language models &"
+	emphasis="machine reasoning."
+	intro="Research spanning large language models (LLMs), neurosymbolic AI, explainable AI (XAI), multilingual AI, machine reasoning, and AI applications."
 >
 	<aside slot="hero-aside" class="research-profile-rail" aria-label="Research profiles">
 		<div class="research-profile-label">Research profiles</div>
@@ -35,9 +37,23 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 				))
 			}
 		</div>
+		<div class="research-profile-label">Repositories</div>
+		<div class="research-profile-list">
+			{
+				researchRepositories.map((repository) => (
+					<a class="research-profile-card" href={repository.href} target="_blank" rel="noreferrer">
+						<span class="research-profile-logo">
+							<img src={repository.logoSrc} alt={repository.logoAlt} loading="lazy" />
+						</span>
+						<span>{repository.label}</span>
+						<ArrowUpRight aria-hidden="true" size={15} strokeWidth={1.8} />
+					</a>
+				))
+			}
+		</div>
 	</aside>
 
-	<section class="page-section" aria-labelledby="directions-heading">
+	<section class="page-section" id="directions" aria-labelledby="directions-heading">
 		<div class="page-section-label"><span>Directions</span></div>
 		<div class="page-section-content">
 			<h2 class="page-section-title" id="directions-heading">Current research directions</h2>
@@ -57,7 +73,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 		</div>
 	</section>
 
-	<section class="page-section" aria-labelledby="publications-heading">
+	<section class="page-section" id="proceedings" aria-labelledby="publications-heading">
 		<div class="page-section-label"><span>Proceedings</span></div>
 		<div class="page-section-content">
 			<h2 class="page-section-title" id="publications-heading">Conference papers and <em>proceedings.</em></h2>
@@ -71,7 +87,23 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 								<p class="academic-authors">{publication.authors}</p>
 								<p>{publication.venue}</p>
 							</div>
-							<a class="academic-link" href={publication.href} target="_blank" rel="noreferrer">{publication.linkLabel}</a>
+							<div class="academic-actions">
+								<a class="academic-link" href={publication.href} target="_blank" rel="noreferrer">{publication.linkLabel}</a>
+								{
+									publication.bibtexKey && (
+										<button
+											class="bibtex-copy"
+											type="button"
+											data-bibtex-key={publication.bibtexKey}
+											title="Copy BibTeX entry"
+											aria-label={`Copy BibTeX entry for ${publication.title}`}
+										>
+											<Copy aria-hidden="true" size={13} strokeWidth={1.8} />
+											<span>BibTeX</span>
+										</button>
+									)
+								}
+							</div>
 						</article>
 					))
 				}
@@ -79,7 +111,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 		</div>
 	</section>
 
-	<section class="page-section" aria-labelledby="coauthored-heading">
+	<section class="page-section" id="co-authored" aria-labelledby="coauthored-heading">
 		<div class="page-section-label"><span>Co-authored</span></div>
 		<div class="page-section-content">
 			<h2 class="page-section-title" id="coauthored-heading">Other collaborative <em>publications.</em></h2>
@@ -93,7 +125,23 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 								<p class="academic-authors">{publication.authors}</p>
 								<p>{publication.venue}</p>
 							</div>
-							<a class="academic-link" href={publication.href} target="_blank" rel="noreferrer">{publication.linkLabel}</a>
+							<div class="academic-actions">
+								<a class="academic-link" href={publication.href} target="_blank" rel="noreferrer">{publication.linkLabel}</a>
+								{
+									publication.bibtexKey && (
+										<button
+											class="bibtex-copy"
+											type="button"
+											data-bibtex-key={publication.bibtexKey}
+											title="Copy BibTeX entry"
+											aria-label={`Copy BibTeX entry for ${publication.title}`}
+										>
+											<Copy aria-hidden="true" size={13} strokeWidth={1.8} />
+											<span>BibTeX</span>
+										</button>
+									)
+								}
+							</div>
 						</article>
 					))
 				}
@@ -101,7 +149,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 		</div>
 	</section>
 
-	<section class="page-section" aria-labelledby="presentations-heading">
+	<section class="page-section" id="presentations" aria-labelledby="presentations-heading">
 		<div class="page-section-label"><span>Presentations</span></div>
 		<div class="page-section-content">
 			<h2 class="page-section-title" id="presentations-heading">Oral and poster <em>presentations.</em></h2>
@@ -114,7 +162,27 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 								<h3>{presentation.title}</h3>
 								<p>{presentation.detail}</p>
 							</div>
-							{presentation.href && <a class="academic-link" href={presentation.href} target="_blank" rel="noreferrer">{presentation.linkLabel}</a>}
+							{
+								(presentation.href || presentation.bibtexKey) && (
+									<div class="academic-actions">
+										{presentation.href && <a class="academic-link" href={presentation.href} target="_blank" rel="noreferrer">{presentation.linkLabel}</a>}
+										{
+											presentation.bibtexKey && (
+												<button
+													class="bibtex-copy"
+													type="button"
+													data-bibtex-key={presentation.bibtexKey}
+													title="Copy BibTeX entry"
+													aria-label={`Copy BibTeX entry for ${presentation.title}`}
+												>
+													<Copy aria-hidden="true" size={13} strokeWidth={1.8} />
+													<span>BibTeX</span>
+												</button>
+											)
+										}
+									</div>
+								)
+							}
 						</article>
 					))
 				}
@@ -122,7 +190,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 		</div>
 	</section>
 
-	<section class="page-section" aria-labelledby="outreach-heading">
+	<section class="page-section" id="outreach" aria-labelledby="outreach-heading">
 		<div class="page-section-label"><span>Public outreach</span></div>
 		<div class="page-section-content">
 			<h2 class="page-section-title" id="outreach-heading">Public <em>engagement.</em></h2>
@@ -141,4 +209,39 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 			</div>
 		</div>
 	</section>
+
+	<script define:vars={{ bibtexEntries }}>
+		const copyFallback = (value) => {
+			const textArea = document.createElement('textarea');
+			textArea.value = value;
+			textArea.setAttribute('readonly', '');
+			textArea.style.position = 'fixed';
+			textArea.style.opacity = '0';
+			document.body.appendChild(textArea);
+			textArea.select();
+			document.execCommand('copy');
+			textArea.remove();
+		};
+
+		document.querySelectorAll('.bibtex-copy').forEach((button) => {
+			button.addEventListener('click', async () => {
+				const key = button.dataset.bibtexKey;
+				const entry = key ? bibtexEntries[key] : undefined;
+				if (!entry) return;
+
+				try {
+					await navigator.clipboard.writeText(entry);
+				} catch {
+					copyFallback(entry);
+				}
+
+				button.dataset.copied = 'true';
+				button.title = 'BibTeX entry copied';
+				window.setTimeout(() => {
+					delete button.dataset.copied;
+					button.title = 'Copy BibTeX entry';
+				}, 1600);
+			});
+		});
+	</script>
 </AcademicPage>

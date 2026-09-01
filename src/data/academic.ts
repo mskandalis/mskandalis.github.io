@@ -4,7 +4,7 @@ export const researchDirections = [
 		kind: 'Research direction',
 		title: 'Neurosymbolic NLI',
 		description:
-			'Combining large language models with logic and linguistic formalisms for semantic parsing and natural language reasoning.',
+			'Combining large language models with computational linguistics and logical formalisms for semantic parsing and natural language reasoning.',
 		status: 'Core focus',
 	},
 	{
@@ -20,7 +20,7 @@ export const researchDirections = [
 		kind: 'Research direction',
 		title: 'High-stakes language AI',
 		description:
-			'Bringing formal methods, reliable data, and language technology together for consequential application domains.',
+			'Bringing formal methods, reliable data, and explainable AI together for consequential application domains.',
 		status: 'Applied inquiry',
 	},
 ];
@@ -36,6 +36,7 @@ export const publications = [
 		summary: 'LLMs and theorem provers for semantic parsing and natural language reasoning.',
 		href: 'https://aclanthology.org/2025.iwcs-main.21',
 		linkLabel: 'ACL Anthology',
+		bibtexKey: 'neurosymbolic-2025',
 	},
 	{
 		year: '2024',
@@ -47,6 +48,7 @@ export const publications = [
 		summary: 'French datasets for automatic textual entailment and contradiction detection.',
 		href: 'https://aclanthology.org/2024.lrec-main.1065',
 		linkLabel: 'ACL Anthology',
+		bibtexKey: 'datasets-2024',
 	},
 	{
 		year: '2023',
@@ -58,6 +60,7 @@ export const publications = [
 		summary: 'A French dataset for automatic detection of contradictory statements.',
 		href: 'https://aclanthology.org/2023.jeptalnrecital-long.22',
 		linkLabel: 'ACL Anthology',
+		bibtexKey: 'daccord-2023',
 	},
 	{
 		year: '2016',
@@ -68,6 +71,7 @@ export const publications = [
 		summary: 'A contribution to the World Congress of Philosophy proceedings on Aristotle and Plato’s philosophy of mathematics.',
 		href: 'https://hal.science/hal-04658183v1',
 		linkLabel: 'HAL',
+		bibtexKey: 'aristotle-2016',
 	},
 ];
 
@@ -82,25 +86,30 @@ export const coAuthoredPublications = [
 		summary: 'Few-shot learning with LLMs for textual inference and automatic contradiction detection in French.',
 		href: 'https://hal.science/hal-05649167',
 		linkLabel: 'HAL',
+		bibtexKey: 'few-shot-2026',
 	},
 	{
 		year: '2026',
 		role: 'Co-author',
-		title: 'Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures',
+		title: 'Global PIQA: Evaluating Commonsense Reasoning Across 100+ Languages and Cultures',
 		authors:
 			'Tyler A. Chang, Catherine Arnett, and Authors at the 5th Multilingual Representation Learning Workshop.',
 		venue: 'arXiv:2510.24081. Submitted to NeurIPS 2026.',
-		summary: 'A multilingual and multicultural evaluation of physical commonsense reasoning.',
+		summary: 'A multilingual and multicultural evaluation of commonsense reasoning.',
 		href: 'https://arxiv.org/abs/2510.24081',
 		linkLabel: 'arXiv',
+		bibtexKey: 'global-piqa-2026',
 	},
 ];
 
 export const education = [
 	{
-		year: 'Current',
+		year: 'PhD',
+		current: true,
 		title: 'PhD, Computer Science and AI',
-		detail: 'CNRS and University of Montpellier, France.',
+		detail: 'LIRMM, CNRS & University of Montpellier, France.',
+		href: 'https://theses.fr/s355752',
+		linkLabel: 'Thesis record',
 	},
 	{
 		year: 'MSc',
@@ -114,6 +123,7 @@ export const education = [
 	},
 	{
 		year: 'Ptychio',
+		level: '4-year undergraduate degree',
 		title: 'Classics and Linguistics',
 		detail: 'Aristotle University of Thessaloniki, Greece.',
 	},
@@ -143,12 +153,12 @@ export const honoursAwardsScholarships = [
 	{
 		period: '2025',
 		title: 'Erasmus+ Scholarship',
-		detail: 'Scholarship award.',
+		detail: 'Mobility Grant for a research stay at Utrecht University, the Netherlands.',
 	},
 	{
 		period: '2022-2025',
 		title: 'PhD fellowship, Defence Innovation Agency (AID)',
-		detail: 'Fellowship from the Defence Innovation Agency of the General Directorate of Armament (DGA), French Ministry of the Armed Forces; one of the three most prestigious national scholarships.',
+		detail: 'Fellowship from the Defence Innovation Agency of the General Directorate of Armament (DGA), French Ministry of the Armed Forces; one of the three most prestigious national PhD scholarships.',
 	},
 	{
 		period: '2022-2025',
@@ -197,6 +207,7 @@ export const researchPresentations = [
 		detail: 'ELLIS Winter School on Foundation Models (FoMo 2025), Amsterdam, the Netherlands. ELLIS Unit Amsterdam, University of Amsterdam.',
 		href: 'https://hal.science/hal-05002405v1',
 		linkLabel: 'HAL',
+		bibtexKey: 'fomo-2025',
 	},
 	{
 		date: '2024.07.12',
@@ -265,6 +276,21 @@ export const researchProfiles = [
 		href: 'https://www.semanticscholar.org/author/Maximos-Skandalis/2257975631',
 		logoSrc: 'https://cdn.semanticscholar.org/6ff0b6e01240bdce/img/favicon-196x196.png',
 		logoAlt: 'Semantic Scholar mark',
+	},
+];
+
+export const researchRepositories = [
+	{
+		label: 'Hugging Face',
+		href: 'https://huggingface.co/maximoss',
+		logoSrc: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg',
+		logoAlt: 'Hugging Face mark',
+	},
+	{
+		label: 'GitHub',
+		href: 'https://github.com/mskandalis',
+		logoSrc: 'https://github.githubassets.com/favicons/favicon.svg',
+		logoAlt: 'GitHub mark',
 	},
 ];
 
@@ -435,7 +461,7 @@ export const responsibilityItems = [
 		category: 'Research',
 		title: 'Doctoral researcher in artificial intelligence',
 		detail:
-			'Conducting doctoral research at LIRMM, CNRS and the University of Montpellier on neurosymbolic natural language inference and contradiction detection.',
+			'Conducting doctoral research at LIRMM, CNRS & University of Montpellier on neurosymbolic natural language inference and contradiction detection.',
 	},
 	{
 		period: '2023-2026',
@@ -569,6 +595,7 @@ export const collectiveResponsibilities = [
 ];
 
 export const memberships = [
+	{ period: '2026-', title: 'Association for Computing Machinery (ACM)', detail: 'Lifetime Professional Member.' },
 	{ period: '2025-', title: 'French Institute for Higher National Defence Studies (IHEDN)', detail: 'Auditor.' },
 	{ period: '2020-', title: 'International Association for Computing and Philosophy (IACAP)', detail: 'Permanent member.' },
 	{ period: '2021-', title: 'Association for Logic, Language and Information (FoLLI)', detail: 'Member.' },

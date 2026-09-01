@@ -8,9 +8,9 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 	title="Teaching"
 	description="University teaching and student supervision by Maximos Skandalis at the University of Montpellier and Polytech Montpellier."
 	eyebrow="03 / Teaching"
-	heading="Teaching with"
-	emphasis="structure."
-	intro="A university teaching record spanning computer science, mathematics, software engineering, formal languages, and student research supervision."
+	heading="Teaching across"
+	emphasis="the curriculum."
+	intro="A university teaching record across computer science, serving diverse cohorts in two university structures alongside student research supervision."
 >
 	<section class="metric-strip" aria-label="Teaching record summary">
 		<div class="metric">
@@ -27,15 +27,15 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 		</div>
 	</section>
 
-	<section class="page-section" aria-labelledby="teaching-load-heading">
+	<section class="page-section" id="teaching-load" aria-labelledby="teaching-load-heading">
 		<div class="page-section-label"><span>Teaching load</span></div>
 		<div class="page-section-content">
 			<h2 class="page-section-title" id="teaching-load-heading">Courses, tutorials, and <em>practical sessions.</em></h2>
 			{
 				teachingGroups.map((group) => (
-					<section class="teaching-group" aria-labelledby={`teaching-${group.label.toLowerCase().replaceAll(' ', '-')}`}>
+					<section class="teaching-group" id={`teaching-${group.label.toLowerCase().replaceAll(' ', '-')}`} aria-labelledby={`teaching-${group.label.toLowerCase().replaceAll(' ', '-')}-heading`}>
 						<div class="teaching-group-heading">
-							<h3 id={`teaching-${group.label.toLowerCase().replaceAll(' ', '-')}`}>{group.label}</h3>
+							<h3 id={`teaching-${group.label.toLowerCase().replaceAll(' ', '-')}-heading`}>{group.label}</h3>
 							<span>{group.frenchLabel}</span>
 						</div>
 						<div class="academic-list">
