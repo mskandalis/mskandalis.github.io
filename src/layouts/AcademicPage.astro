@@ -1,6 +1,7 @@
 ---
 import BackToTop from '../components/BackToTop.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import SiteFavicon from '../components/SiteFavicon.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import '../styles/global.css';
 
@@ -25,6 +26,7 @@ const hasHeroAside = Astro.slots.has('hero-aside');
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
+		<SiteFavicon />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link

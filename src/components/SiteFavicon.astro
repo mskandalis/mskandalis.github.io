@@ -1,0 +1,20 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+const hasTransparentPortrait = existsSync(join(process.cwd(), 'public', 'images', 'profile-cutout.png'));
+---
+
+{
+	hasTransparentPortrait ? (
+		<>
+			<link rel="icon" type="image/png" href="/images/profile-cutout.png" />
+			<link rel="apple-touch-icon" href="/images/profile-cutout.png" />
+		</>
+	) : (
+		<>
+			<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+			<link rel="icon" href="/favicon.ico" />
+		</>
+	)
+}

@@ -3,6 +3,7 @@ import { ArrowUpRight } from '@lucide/astro';
 import '../styles/global.css';
 import BackToTop from '../components/BackToTop.astro';
 import SiteFooter from '../components/SiteFooter.astro';
+import SiteFavicon from '../components/SiteFavicon.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { education, newsItems, publications, researchDirections } from '../data/academic';
 
@@ -22,6 +23,7 @@ const selectedPublications = publications.slice(0, 3).map((publication, index) =
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
+		<SiteFavicon />
 		<meta
 			name="description"
 			content="The academic portfolio of Maximos Skandalis, a PhD researcher in AI at LIRMM, CNRS & University of Montpellier."

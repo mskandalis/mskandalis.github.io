@@ -277,6 +277,12 @@ export const researchProfiles = [
 		logoSrc: 'https://cdn.semanticscholar.org/6ff0b6e01240bdce/img/favicon-196x196.png',
 		logoAlt: 'Semantic Scholar mark',
 	},
+	{
+		label: 'arXiv',
+		href: 'https://arxiv.org/a/skandalis_m_1',
+		logoSrc: 'https://arxiv.org/favicon.ico',
+		logoAlt: 'arXiv mark',
+	},
 ];
 
 export const researchRepositories = [
@@ -436,7 +442,7 @@ export const supervisionProjects = [
 	{
 		year: '2025-2026',
 		title: 'M1 TER: Few-shot learning for natural language inference in French',
-		detail: 'Research project supervision. The internship received the highest mark in the Master’s programme for the year.',
+		detail: 'Research project supervision. My interns received the highest mark of the year in their Master’s programme for the internship.',
 	},
 	{
 		year: '2025-2026',

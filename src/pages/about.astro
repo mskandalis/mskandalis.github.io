@@ -1,5 +1,6 @@
 ---
 import AcademicPage from '../layouts/AcademicPage.astro';
+import ProfileCutout from '../components/ProfileCutout.astro';
 ---
 
 <AcademicPage
@@ -14,7 +15,10 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 	<section class="page-section" aria-labelledby="profile-heading">
 		<div class="page-section-label"><span>Profile</span></div>
 		<div class="page-section-content">
-			<h2 class="page-section-title" id="profile-heading">A concern for <em>explainable AI.</em></h2>
+			<div class="profile-section-heading">
+				<h2 class="page-section-title" id="profile-heading">A concern for <em>explainable AI.</em></h2>
+				<ProfileCutout class="profile-cutout--about" />
+			</div>
 			<div class="detail-prose-stack">
 				<p>
 					I am a last-year PhD student in artificial intelligence at LIRMM, CNRS & University of

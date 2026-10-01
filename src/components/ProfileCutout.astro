@@ -1,0 +1,16 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+type Props = {
+	class?: string;
+};
+
+const { class: className } = Astro.props;
+const hasTransparentPortrait = existsSync(join(process.cwd(), 'public', 'images', 'profile-cutout.png'));
+const source = hasTransparentPortrait ? '/images/profile-cutout.png' : '/images/portrait.png';
+---
+
+<figure class:list={['profile-cutout', className, { 'profile-cutout--transparent': hasTransparentPortrait }]}>
+	<img src={source} alt="Portrait of Maximos Skandalis" loading="lazy" />
+</figure>

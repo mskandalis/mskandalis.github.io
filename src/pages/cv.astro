@@ -17,6 +17,8 @@ import {
 } from '../data/academic';
 import '../styles/global.css';
 import BackToTop from '../components/BackToTop.astro';
+import ProfileCutout from '../components/ProfileCutout.astro';
+import SiteFavicon from '../components/SiteFavicon.astro';
 
 type CvEntry = {
 	title: string;
@@ -173,6 +175,7 @@ const cvSections: CvSection[] = [
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content="Curriculum vitae of Maximos Skandalis." />
+		<SiteFavicon />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -190,6 +193,7 @@ const cvSections: CvSection[] = [
 
 			<section class="cv-intro">
 				<h1 class="cv-name">Maximos<br /><em>Skandalis</em></h1>
+				<ProfileCutout class="profile-cutout--cv" />
 				<div class="cv-intro-copy">
 					<div class="micro-label">Curriculum vitae / 2026</div>
 					<p>Last-year PhD researcher in AI at LIRMM, CNRS & University of Montpellier.</p>
