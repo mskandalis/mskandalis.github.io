@@ -99,7 +99,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 											aria-label={`Copy BibTeX entry for ${publication.title}`}
 										>
 											<Copy aria-hidden="true" size={13} strokeWidth={1.8} />
-											<span>BibTeX</span>
+											<span aria-live="polite">BibTeX</span>
 										</button>
 									)
 								}
@@ -137,7 +137,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 											aria-label={`Copy BibTeX entry for ${publication.title}`}
 										>
 											<Copy aria-hidden="true" size={13} strokeWidth={1.8} />
-											<span>BibTeX</span>
+											<span aria-live="polite">BibTeX</span>
 										</button>
 									)
 								}
@@ -176,7 +176,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 													aria-label={`Copy BibTeX entry for ${presentation.title}`}
 												>
 													<Copy aria-hidden="true" size={13} strokeWidth={1.8} />
-													<span>BibTeX</span>
+													<span aria-live="polite">BibTeX</span>
 												</button>
 											)
 										}
@@ -218,9 +218,14 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 			textArea.style.position = 'fixed';
 			textArea.style.opacity = '0';
 			document.body.appendChild(textArea);
-			textArea.select();
-			document.execCommand('copy');
-			textArea.remove();
+			try {
+				textArea.select();
+				return document.execCommand('copy');
+			} catch {
+				return false;
+			} finally {
+				textArea.remove();
+			}
 		};
 
 		document.querySelectorAll('.bibtex-copy').forEach((button) => {
@@ -229,17 +234,22 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 				const entry = key ? bibtexEntries[key] : undefined;
 				if (!entry) return;
 
+				let copied = false;
 				try {
 					await navigator.clipboard.writeText(entry);
+					copied = true;
 				} catch {
-					copyFallback(entry);
+					copied = copyFallback(entry);
 				}
 
-				button.dataset.copied = 'true';
-				button.title = 'BibTeX entry copied';
+				const label = button.querySelector('span');
+				if (label) label.textContent = copied ? '✓ Copied' : 'Copy failed';
+				if (copied) button.dataset.copied = 'true';
+				button.title = copied ? 'BibTeX entry copied' : 'Could not copy BibTeX entry';
 				window.setTimeout(() => {
 					delete button.dataset.copied;
 					button.title = 'Copy BibTeX entry';
+					if (label) label.textContent = 'BibTeX';
 				}, 1600);
 			});
 		});

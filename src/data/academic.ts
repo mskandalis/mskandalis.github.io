@@ -254,6 +254,12 @@ export const publicOutreach = [
 
 export const researchProfiles = [
 	{
+		label: 'Google Scholar',
+		href: 'https://scholar.google.gr/citations?user=QeKFlyQAAAAJ',
+		logoSrc: 'https://scholar.google.gr/favicon.ico',
+		logoAlt: 'Google Scholar mark',
+	},
+	{
 		label: 'ACL Anthology',
 		href: 'https://aclanthology.org/people/maximos-skandalis',
 		logoSrc: 'https://aclanthology.org/aclicon.ico',

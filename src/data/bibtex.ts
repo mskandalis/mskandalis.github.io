@@ -1,3 +1,4 @@
+import aristotleBibtex from './aristotle-2016.bib?raw';
 import globalPiqaBibtex from './global-piqa.bib?raw';
 
 export const bibtexEntries = {
@@ -59,24 +60,7 @@ export const bibtexEntries = {
     language = "fra",
     abstract = "La t{\^a}che de d{\'e}tection automatique de contradictions logiques entre {\'e}nonc{\'e}s en TALN est une t{\^a}che de classification binaire, o{\`u} chaque paire de phrases re{\c{c}}oit une {\'e}tiquette selon que les deux phrases se contredisent ou non. Elle peut {\^e}tre utilis{\'e}e afin de lutter contre la d{\'e}sinformation. Dans cet article, nous pr{\'e}sentons DACCORD, un jeu de donn{\'e}es d{\'e}di{\'e} {\`a} la t{\^a}che de d{\'e}tection automatique de contradictions entre phrases en fran{\c{c}}ais. Le jeu de donn{\'e}es {\'e}labor{\'e} est actuellement compos{\'e} de 1034 paires de phrases. Il couvre les th{\'e}matiques de l{'}invasion de la Russie en Ukraine en 2022, de la pand{\'e}mie de Covid-19 et de la crise climatique. Pour mettre en avant les possibilit{\'e}s de notre jeu de donn{\'e}es, nous {\'e}valuons les performances de certains mod{\`e}les de transformeurs sur lui. Nous constatons qu{'}il constitue pour eux un d{\'e}fi plus {\'e}lev{\'e} que les jeux de donn{\'e}es existants pour le fran{\c{c}}ais, qui sont d{\'e}j{\`a} peu nombreux.In NLP, the automatic detection of logical contradictions between statements is a binary classification task, in which a pair of sentences receives a label according to whether or not the two sentences contradict each other. This task has many potential applications, including combating disinformation. In this article, we present DACCORD, a new dataset dedicated to the task of automatically detecting contradictions between sentences in French. The dataset is currently composed of 1034 sentence pairs. It covers the themes of Russia{'}s invasion of Ukraine in 2022, the Covid-19 pandemic, and the climate crisis. To highlight the possibilities of our dataset, we evaluate the performance of some recent Transformer models on it. We conclude that our dataset is considerably more challenging than the few existing datasets for French."
 }`,
-	'aristotle-2016': String.raw`@inproceedings{skandalis:hal-04658183,
-  TITLE = {{$O$ $A$$\rho$$\iota$$\sigma$$\tau$$o$$\tau$έ$\lambda$$\eta$$\varsigma$ $\kappa$$\alpha$$\iota$ $\eta$ $\phi$$\iota$$\lambda$$o$$\sigma$$o$$\phi$$\iota$$\alpha$ $\tau$$\omega$$\nu$ $\mu$$\alpha$$\theta$$\eta$$\mu$$\alpha$$\tau$$\iota$$\kappa$$\omega$$\nu$ $\tau$$o$$\upsilon$ $\Pi$$\lambda$ά$\tau$$\omega$$\nu$$\alpha$}},
-  AUTHOR = {Skandalis, Maximos and Skandalis, Stefanos},
-  URL = {https://hal.science/hal-04658183},
-  BOOKTITLE = {{Studies in Greek Philosophy SeriesThe World Congress of Philosophy: The Philosophy of Aristotle (WCP2016)}},
-  ADDRESS = {Ath{\`e}nes, Greece},
-  ORGANIZATION = {{International Association of Greek Philosophy (IAGP) and Greek Philosophical Society (GPS) and Philosophical Society of Cyprus (PSC)}},
-  EDITOR = {Konstantine Boudouris and Kleitos Ioannides},
-  PUBLISHER = {{Ionia Publications}},
-  VOLUME = {6},
-  PAGES = {254-264},
-  YEAR = {2016},
-  MONTH = Jul,
-  KEYWORDS = {$\Phi$$\iota$$\lambda$$o$$\sigma$$o$$\phi$$\iota$$\alpha$ $\tau$$\omega$$\nu$ $\mu$$\alpha$$\theta$$\eta$$\mu$$\alpha$$\tau$$\iota$$\kappa$$\omega$$\nu$ ; $A$$\rho$$\chi$$\alpha$$\iota$$\alpha$ $\epsilon$$\lambda$$\lambda$$\eta$$\nu$$\iota$$\kappa$ά $\mu$$\alpha$$\theta$$\eta$$\mu$$\alpha$$\tau$$\iota$$\kappa$ά ; $\Theta$$\epsilon$$\omega$$\rho$$\iota$$\alpha$ $\alpha$$\rho$$\iota$$\theta$$\mu$$\omega$$\nu$ ; $\Pi$$\lambda$$\alpha$$\tau$$\omega$$\nu$$\iota$$\kappa$έ$\varsigma$ $\mu$$\alpha$$\theta$$\eta$$\mu$$\alpha$$\tau$$\iota$$\kappa$έ$\varsigma$ $\iota$$\delta$έ$\epsilon$$\varsigma$ ; $\Pi$$\lambda$ά$\tau$$\omega$$\nu$ ; $A$$\rho$$\iota$$\sigma$$\tau$$o$$\tau$έ$\lambda$$\eta$$\varsigma$ ; Aristotle ; Plato ; Philosophy of mathematics ; Platonic mathematical forms ; Number theory ; Greek mathematics},
-  PDF = {https://hal.science/hal-04658183v1/file/WCP2016%2C%20Skandalis%20-%20Aristotle%20and%20Plato%27s%20Philosophy%20of%20Mathematics.pdf},
-  HAL_ID = {hal-04658183},
-  HAL_VERSION = {v1},
-}`,
+	'aristotle-2016': aristotleBibtex,
 	'few-shot-2026': String.raw`@report{dievart:hal-05649167,
   TITLE = {{Fine-tuning avec peu d'exemples et few-shot learning avec des LLMs pour les t{\^a}ches d'inf{\'e}rence textuelle et de d{\'e}tection automatique de contradictions pour le fran{\c c}ais}},
   AUTHOR = {Dievart, Colin and Ammari, Reda and Aljibbaoui, Tala and Skandalis, Maximos and Sioutis, Michael},

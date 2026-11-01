@@ -8,9 +8,12 @@ type Props = {
 
 const { class: className } = Astro.props;
 const hasTransparentPortrait = existsSync(join(process.cwd(), 'public', 'images', 'profile-cutout.png'));
-const source = hasTransparentPortrait ? '/images/profile-cutout.png' : '/images/portrait.png';
 ---
 
-<figure class:list={['profile-cutout', className, { 'profile-cutout--transparent': hasTransparentPortrait }]}>
-	<img src={source} alt="Portrait of Maximos Skandalis" loading="lazy" />
-</figure>
+{
+	hasTransparentPortrait && (
+		<figure class:list={['profile-cutout', 'profile-cutout--transparent', className]}>
+			<img src="/images/profile-cutout.png" alt="Portrait of Maximos Skandalis" loading="lazy" />
+		</figure>
+	)
+}
