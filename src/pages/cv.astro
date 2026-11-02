@@ -1,4 +1,5 @@
 ---
+import { ArrowLeft } from '@lucide/astro';
 import {
 	coAuthoredPublications,
 	collectiveResponsibilities,
@@ -187,13 +188,13 @@ const cvSections: CvSection[] = [
 	<body>
 		<main class="cv-page" id="page-top">
 			<header class="cv-page-header">
-				<a class="cv-back" href="/">Portfolio</a>
+				<a class="cv-back" href="/"><ArrowLeft aria-hidden="true" size={16} strokeWidth={1.8} />Portfolio</a>
 				<button class="cv-print" type="button">Print / save PDF</button>
 			</header>
 
 			<section class="cv-intro">
-				<h1 class="cv-name">Maximos<br /><em>Skandalis</em></h1>
 				<ProfileCutout class="profile-cutout--cv" />
+				<h1 class="cv-name">Maximos<br /><em>Skandalis</em></h1>
 				<div class="cv-intro-copy">
 					<div class="micro-label">Curriculum vitae / 2026</div>
 					<p>Last-year PhD researcher in AI at LIRMM, CNRS & University of Montpellier.</p>
