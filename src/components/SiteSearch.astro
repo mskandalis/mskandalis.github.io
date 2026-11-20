@@ -52,7 +52,17 @@ import { siteSearchEntries } from '../data/search';
 		category.className = 'site-search-result-category';
 		category.textContent = entry.category;
 		title.className = 'site-search-result-title';
-		title.textContent = entry.title;
+		if (entry.frenchOrdinalTitle) {
+			const { edition, ordinalSuffix, name, trailingText } = entry.frenchOrdinalTitle;
+			const frenchTitle = document.createElement('i');
+			const superscript = document.createElement('sup');
+			frenchTitle.lang = 'fr';
+			superscript.textContent = ordinalSuffix;
+			frenchTitle.append(edition, superscript, ` ${name}`);
+			title.append(frenchTitle, ` ${trailingText}`);
+		} else {
+			title.textContent = entry.title;
+		}
 		icon.className = 'site-search-result-icon';
 		icon.textContent = '↗';
 

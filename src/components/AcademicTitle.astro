@@ -1,0 +1,16 @@
+---
+import type { FrenchOrdinalTitle } from '../data/academic';
+
+interface Props {
+	title: string;
+	frenchOrdinalTitle?: FrenchOrdinalTitle;
+}
+
+const { title, frenchOrdinalTitle } = Astro.props;
+---
+
+{
+	frenchOrdinalTitle ? (
+		<><i lang="fr">{frenchOrdinalTitle.edition}<sup>{frenchOrdinalTitle.ordinalSuffix}</sup> {frenchOrdinalTitle.name}</i>{' '}{frenchOrdinalTitle.trailingText}</>
+	) : title
+}

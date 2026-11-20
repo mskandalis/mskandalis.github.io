@@ -502,11 +502,26 @@ export const responsibilityItems = [
 	},
 ];
 
+export type FrenchOrdinalTitle = {
+	edition: string;
+	ordinalSuffix: string;
+	name: string;
+	trailingText: string;
+};
+
+const pfia2027Title: FrenchOrdinalTitle = {
+	edition: '20',
+	ordinalSuffix: 'ème',
+	name: 'Plate-Forme Intelligence Artificielle',
+	trailingText: '(PFIA) 2027',
+};
+
 export const organisationalResponsibilities = [
 	{
 		period: '2027.06–07',
 		category: 'Organising committee',
-		title: '20ème Plate-Forme Intelligence Artificielle (PFIA) 2027',
+		title: `${pfia2027Title.edition}${pfia2027Title.ordinalSuffix} ${pfia2027Title.name} ${pfia2027Title.trailingText}`,
+		frenchOrdinalTitle: pfia2027Title,
 		detail: 'Member of the organising committee. Montpellier, 28 June–2 July 2027.',
 		links: [{ label: 'Organisation', href: 'https://pfia2027.lirmm.fr/organization.html' }],
 	},

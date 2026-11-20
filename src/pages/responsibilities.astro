@@ -7,6 +7,7 @@ import {
 	reviewingAssignments,
 	supervisionProjects,
 } from '../data/academic';
+import AcademicTitle from '../components/AcademicTitle.astro';
 import AcademicPage from '../layouts/AcademicPage.astro';
 ---
 
@@ -50,7 +51,7 @@ import AcademicPage from '../layouts/AcademicPage.astro';
 						<article class="academic-item">
 							<div class="academic-meta"><span>{item.period}</span><span>{item.category}</span></div>
 							<div>
-								<h3>{item.title}</h3>
+								<h3><AcademicTitle title={item.title} frenchOrdinalTitle={item.frenchOrdinalTitle} /></h3>
 								<p>{item.detail}</p>
 							</div>
 							{

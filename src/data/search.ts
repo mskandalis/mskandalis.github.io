@@ -18,9 +18,11 @@ import {
 	supervisionProjects,
 	teachingGroups,
 } from './academic';
+import type { FrenchOrdinalTitle } from './academic';
 
 export type SearchEntry = {
 	category: string;
+	frenchOrdinalTitle?: FrenchOrdinalTitle;
 	href: string;
 	text: string;
 	title: string;
@@ -105,9 +107,10 @@ export const siteSearchEntries: SearchEntry[] = [
 	...responsibilityItems.map((item) =>
 		makeEntry('Responsibilities / ' + item.category, '/responsibilities/#scope', item.title, `${item.period} ${item.detail}`),
 	),
-	...organisationalResponsibilities.map((item) =>
-		makeEntry('Responsibilities / Organisation', '/responsibilities/#organisation', item.title, `${item.period} ${item.category} ${item.detail}`),
-	),
+	...organisationalResponsibilities.map((item) => ({
+		...makeEntry('Responsibilities / Organisation', '/responsibilities/#organisation', item.title, `${item.period} ${item.category} ${item.detail}`),
+		frenchOrdinalTitle: item.frenchOrdinalTitle,
+	})),
 	...reviewingAssignments.map((item) =>
 		makeEntry('Responsibilities / Reviewing', '/responsibilities/#reviewing', item.title, `${item.period} ${item.category} ${item.detail}`),
 	),

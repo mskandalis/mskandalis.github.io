@@ -16,13 +16,16 @@ import {
 	supervisionProjects,
 	teachingGroups,
 } from '../data/academic';
+import type { FrenchOrdinalTitle } from '../data/academic';
 import '../styles/global.css';
+import AcademicTitle from '../components/AcademicTitle.astro';
 import BackToTop from '../components/BackToTop.astro';
 import ProfileCutout from '../components/ProfileCutout.astro';
 import SiteFavicon from '../components/SiteFavicon.astro';
 
 type CvEntry = {
 	title: string;
+	frenchOrdinalTitle?: FrenchOrdinalTitle;
 	detail: string;
 	date: string;
 	href?: string;
@@ -138,6 +141,7 @@ const cvSections: CvSection[] = [
 		label: 'Organisational responsibilities',
 		entries: organisationalResponsibilities.map((item) => ({
 			title: item.title,
+			frenchOrdinalTitle: item.frenchOrdinalTitle,
 			detail: item.detail,
 			date: item.period,
 			href: item.links?.[0]?.href,
@@ -221,7 +225,7 @@ const cvSections: CvSection[] = [
 											{section.entries.map((entry) => (
 												<article class="cv-entry">
 													<div>
-														<h3>{entry.title}</h3>
+														<h3><AcademicTitle title={entry.title} frenchOrdinalTitle={entry.frenchOrdinalTitle} /></h3>
 														<p>{entry.detail}</p>
 														{
 															entry.href && (
