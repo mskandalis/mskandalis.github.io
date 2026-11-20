@@ -1620,8 +1620,7 @@ a {
 	gap: 0.35rem;
 	align-items: center;
 	border: 0;
-	border-bottom: 1px solid currentColor;
-	padding: 0 0 0.2rem;
+	padding: 0;
 	background: transparent;
 	color: var(--ink);
 	cursor: pointer;
@@ -1632,9 +1631,22 @@ a {
 	text-transform: none;
 }
 
+.bibtex-copy span {
+	border-bottom: 1px solid currentColor;
+	padding-bottom: 0.2rem;
+}
+
+.bibtex-check-icon,
+.bibtex-copy[data-copied='true'] .bibtex-copy-icon {
+	display: none;
+}
+
+.bibtex-copy[data-copied='true'] .bibtex-check-icon {
+	display: block;
+}
+
 .bibtex-copy:hover,
 .bibtex-copy[data-copied='true'] {
-	border-color: var(--signal);
 	color: var(--signal);
 }
 

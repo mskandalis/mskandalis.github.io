@@ -504,6 +504,13 @@ export const responsibilityItems = [
 
 export const organisationalResponsibilities = [
 	{
+		period: '2027.06–07',
+		category: 'Organising committee',
+		title: '20ème Plate-Forme Intelligence Artificielle (PFIA) 2027',
+		detail: 'Member of the organising committee. Montpellier, 28 June–2 July 2027.',
+		links: [{ label: 'Organisation', href: 'https://pfia2027.lirmm.fr/organization.html' }],
+	},
+	{
 		period: '2026.05',
 		category: 'Programme committee',
 		title: 'NLP4Ecology @ LREC 2026',
